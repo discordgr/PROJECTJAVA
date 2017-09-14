@@ -5,6 +5,8 @@
  */
 package javafxapplication4;
 import java.sql.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 /**
  *
  * @author Panayiotis
@@ -46,36 +48,37 @@ public class LoginModel {
             }
         }
         
-         public void selectValue(){
+         public ObservableList<Patient> selectValue(){
             connection = Database_Connection.Connector();
+            ObservableList<Patient> patientData = FXCollections.observableArrayList();
             try {
-                PreparedStatement ps = connection.prepareStatement("SELECT * FROM patients WHERE GENDER='Άνδρας'");
+                PreparedStatement ps = connection.prepareStatement("SELECT * FROM patients");
                 ResultSet rs = ps.executeQuery();
                 System.out.println("Select Successfull");
                 while (rs.next()) {
                                 
-				String userid = rs.getString("FIRSTNAME");
-				String username = rs.getString("LASTNAME");
+				String firstname = rs.getString("FIRSTNAME");
+				String lastname = rs.getString("LASTNAME");
                                 String age = rs.getString("AGE");
                                 String gender = rs.getString("GENDER");
                                 String family = rs.getString("FAMILY_STATUS");
                                 String kids = rs.getString("KIDS");
                                 String education = rs.getString("EDUCATION");
 
-				System.out.println("name : " + userid);
-				System.out.println("sirname : " + username);
+				System.out.println("name : " + firstname);
+				System.out.println("sirname : " + lastname);
                                 System.out.println("age : " + age);
                                 System.out.println("Gender : " + gender);
                                 System.out.println("Family Status : " + family);
                                 System.out.println("Kids : " + kids);
                                 System.out.println("Education : " + education);  
+                                Patient p = new Patient(firstname,lastname,age,gender,family,kids,education);
+                                patientData.add(p);
 			}
-            /*Statement st = connection.createStatement();
-            st.execute("INSERT INTO patients (firstname,sirname) VALUES('" + name
-                    + "," + sirname + "')");*/
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
+            return patientData;
         }
         
 }

@@ -1,0 +1,48 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 11, 2017, 5:31:12 PM
+    Author     : Panayiotis
+*/
+
+.table-view {
+    -fx-base: #F2F6F7;
+    -fx-control-inner-background: #F2F6F7;
+    -fx-background-color: #F2F6F7;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 15;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #B7C5C9;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-size: 35;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: transparent;
+    -fx-border-color: 
+        transparent
+        transparent
+        transparent /*derive(-fx-base, 80%)*/ 
+        transparent;
+    -fx-border-insets: 0 10 1 0;
+}
+
+.table-view .column-header .label {
+    -fx-font-size: 10pt;
+    -fx-font-family: bold "Segoe UI Light";
+    -fx-text-fill: #1d1d1d;
+    -fx-alignment: center-left;
+    -fx-opacity: 1;
+}
+
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: -fx-focus-color;
+}
+
+

@@ -9,8 +9,48 @@ and open the template in the editor.
 */
 
 .root{
-    -fx-background-color: #C9B385;
+    -fx-background-color: linear-gradient(#F2F0F2,#C9B385); /*#C9B385; mpez* #F2F0F2) aspro*/ 
+}
 
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-opacity: 0;
+}
+
+.tab-pane
+{
+    -fx-tab-min-width:90px;
+}
+
+.tab{
+    -fx-background-insets: 0 1 0 1,0,0;
+}
+.tab-pane .tab
+{
+    -fx-background-color: #e6e6e6;
+
+}
+
+.tab-pane .tab:selected
+{
+    -fx-background-color: #3c3c3c;
+}
+
+.tab .tab-label { 
+    -fx-alignment: CENTER;
+    -fx-text-fill: #828282;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.tab:selected .tab-label { 
+    -fx-alignment: CENTER;
+    -fx-text-fill: #96b946;
+}
+
+.tab-pane:top *.tab-header-area {
+    -fx-background-insets: 0, 0 0 1 0;
+ /* -fx-padding: 0.416667em 0.166667em 0.0em 0.833em; /* 5 2 0 10 */
+    -fx-padding: 0.416667em 0.166667em 0.0em 0.0em; /* overridden as 5 2 0 0 */
 }
 
 .scroll-pane{
@@ -18,5 +58,13 @@ and open the template in the editor.
 }
 
 .label{
-    -fx-text-fill: #000000;
+    -fx-text-fill: black;
+}
+
+.radiobutton{
+    -fx-text-fill: black;
+}
+
+.hbox{
+    /*-fx-background-color: #C9B385;*/
 }

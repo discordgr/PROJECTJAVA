@@ -19,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
@@ -33,10 +34,13 @@ public class Register_PatientController implements Initializable {
     ObservableList<String> familyStatusList = FXCollections.observableArrayList("Άγαμος","Έγγαμος","Χήρος","Διαζευγμένος","Σε σχέση","Αρραβωνιασμένος");
     ObservableList<String> genderList = FXCollections.observableArrayList("Άνδρας","Γυναίκα","Άλλο");
     ObservableList<String> educationList = FXCollections.observableArrayList("Δημοτικό","Γυμνάσιο","Λύκειο","ΑΕΙ","ΤΕΙ","ΤΕΕ","Μεταπτυχιακό","Διδακτορικό","Άλλο");
+    ObservableList<String> incomeList = FXCollections.observableArrayList("Μικρό","Μεσαίο","Μεγάλο");
     
     //public LoginModel store;
     public LoginModel loginmodel2 = new LoginModel();
     
+    @FXML
+    private TabPane registerPane;
     @FXML
     private TextField firstName;
     
@@ -56,6 +60,9 @@ public class Register_PatientController implements Initializable {
     private ChoiceBox educationBox;
     
     @FXML
+    private ChoiceBox incomeBox;
+    
+    @FXML
     private Button cancel1;
     
     @FXML
@@ -68,7 +75,7 @@ public class Register_PatientController implements Initializable {
     private Button cancel3;
     
     @FXML
-    private Button Continue;
+    private Button next;
     
     @FXML
     private RadioButton yes;
@@ -81,7 +88,9 @@ public class Register_PatientController implements Initializable {
     private ToggleGroup Tropos_gennisis1;
     @FXML
     private ToggleGroup Tropos_gennisis11;
-
+    
+    
+    
     /**
      * Initializes the controller class.
      */
@@ -105,7 +114,7 @@ public class Register_PatientController implements Initializable {
     
     
     @FXML
-    public void cancelAction(ActionEvent e) throws Exception{
+    private void cancelAction(ActionEvent e) throws Exception{
         Stage stage;
         Scene scene;
         Parent root;
@@ -142,7 +151,12 @@ public class Register_PatientController implements Initializable {
             RadioButton r1 = (RadioButton)Kids.getSelectedToggle();
             loginmodel2.insertValue(firstName.getText(),lastName.getText(),Integer.parseInt(age.getText()),genderBox.getValue().toString(),familyStatusBox.getValue().toString(),r1.getText(),educationBox.getValue().toString());
            
-        }      
+        }
+        else if(e.getSource() == next)
+        {
+            registerPane.getSelectionModel().selectNext();
+
+        }
                     
                 
     }
@@ -155,8 +169,8 @@ public class Register_PatientController implements Initializable {
         genderBox.setValue("Άνδρας");
         educationBox.setItems(educationList);
         educationBox.setValue("Δημοτικό");
-        
-        
+        incomeBox.setItems(incomeList);
+        incomeBox.setValue("Μικρό");
     }    
     
 }

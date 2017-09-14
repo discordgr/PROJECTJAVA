@@ -1,0 +1,26 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 10, 2017, 11:43:07 AM
+    Author     : Panayiotis
+*/
+
+.button{
+    -fx-background-radius: 50;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    /*-fx-font-family: "Verdana";*/
+    -fx-background-insets: 0,1,2,0;
+    
+}
+
+.button:hover{
+    -fx-background-color: linear-gradient(#E6E9F0,#4278F5);
+    -fx-background-insets: 0,1,2,0;
+}
+
+.text{
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.9) , 1, 0.0 , 0 , 1 );
+}

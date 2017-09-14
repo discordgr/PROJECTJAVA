@@ -21,7 +21,7 @@
    <children>
       <VBox alignment="TOP_CENTER" minWidth="512.0" spacing="50.0" GridPane.rowIndex="1">
          <children>
-            <Button fx:id="new_patient" minWidth="512.0" mnemonicParsing="false" onAction="#registerPatient" text="Καταχώρηση Νέου Ασθενή">
+            <Button fx:id="new_patient" minWidth="512.0" mnemonicParsing="false" onAction="#menuActions" text="Καταχώρηση Νέου Ασθενή">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -33,7 +33,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="patient_archive" minWidth="512.0" mnemonicParsing="false" text="Αρχείο Ασθενών">
+            <Button id="patient_archive" fx:id="patient_archive" minWidth="512.0" mnemonicParsing="false" onAction="#menuActions" text="Αρχείο Ασθενών">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -45,7 +45,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="statistic_data" minWidth="512.0" mnemonicParsing="false" text="Στατιστικά Στοιχεία">
+            <Button id="statistic_data" minWidth="512.0" mnemonicParsing="false" onAction="#menuActions" text="Στατιστικά Στοιχεία">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -69,7 +69,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="exit" fx:id="exit" layoutX="10.0" layoutY="110.0" minWidth="512.0" mnemonicParsing="false" onAction="#closeAction" text="Έξοδος" textFill="WHITE">
+            <Button id="exit" fx:id="exit" layoutX="10.0" layoutY="110.0" minWidth="512.0" mnemonicParsing="false" onAction="#menuActions" text="Έξοδος" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>

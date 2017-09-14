@@ -46,7 +46,7 @@ public class MenuController implements Initializable
     private Button exit;
     
     @FXML
-    private void registerPatient(ActionEvent e) throws IOException
+    private void menuActions(ActionEvent e) throws IOException
     {
         Stage stage;
         Scene scene;
@@ -58,27 +58,30 @@ public class MenuController implements Initializable
             scene = new Scene(root);    
             
             stage.setScene(scene);
-            stage.setMaxWidth(1024);
-            stage.setMaxHeight(768);
+            //stage.setMaxWidth(1024);
+            //stage.setMaxHeight(768);
             stage.show();
         }
-    }
-    
-    @FXML
-    private void closeAction(ActionEvent e) throws IOException{
-        if ( e.getSource() == exit ){
-            Stage stage = (Stage) exit.getScene().getWindow();
+        else if ( e.getSource() == patient_archive ){
+            stage = (Stage) patient_archive.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("Patient_Data.fxml"));
+            scene = new Scene(root);
+            
+            stage.setScene(scene);
+            stage.show();
+        }
+        else if ( e.getSource() == exit ){
+            stage = (Stage) exit.getScene().getWindow();
             stage.close();
         }
     }
-    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         if ( loginmodel.isDbConnected() ){
             System.out.println("Connection to Database Established!");
             //loginmodel.insertValue();
-            loginmodel.selectValue();
+            //loginmodel.selectValue();
         }
         else{
             System.out.println("Connection to Database Failed!");
