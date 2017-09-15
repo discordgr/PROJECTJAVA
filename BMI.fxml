@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane maxHeight="250.0" maxWidth="350.0" minHeight="225.0" minWidth="350.0" prefHeight="225.0" prefWidth="350.0" stylesheets="@BMI.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication4.BMIController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="330.0" minHeight="10.0" prefHeight="169.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="195.0" minHeight="10.0" prefHeight="56.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+         <children>
+            <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="31.0" prefWidth="350.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="31.0" prefWidth="154.0" text="Υπολογισμός ΒΜΙ">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="31.0" prefWidth="350.0">
+               <children>
+                  <Label prefHeight="44.0" prefWidth="76.0" text="Ύψος:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="height" focusTraversable="false" prefHeight="40.0" prefWidth="205.0" promptText="π.χ 170 cm " />
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="10.0" prefHeight="31.0" prefWidth="350.0">
+               <children>
+                  <Label prefHeight="44.0" prefWidth="76.0" text="Βάρος:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="weight" focusTraversable="false" prefHeight="40.0" prefWidth="205.0" promptText="π.χ 75 kg" />
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="92.0" prefHeight="45.0" prefWidth="350.0">
+               <children>
+                  <Label prefHeight="44.0" prefWidth="76.0" text="BMI:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="result" editable="false" prefHeight="37.0" prefWidth="60.0" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="25.0" GridPane.rowIndex="1">
+         <children>
+            <Button fx:id="cancel" mnemonicParsing="false" onAction="#bmiCalculator" prefHeight="30.0" prefWidth="60.0" stylesheets="@CancelButton.css" text="Άκυρο">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="calculate" mnemonicParsing="false" onAction="#bmiCalculator" prefHeight="30.0" prefWidth="100.0" stylesheets="@SaveButton.css" text="Υπολογισμός">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+         </children>
+      </HBox>
+   </children>
+</GridPane>

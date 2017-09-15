@@ -37,7 +37,7 @@ public class MenuController implements Initializable
     private Button patient_archive;
     
     @FXML 
-    private Button statistic_data;
+    private Button new_diagnosis;
     
     @FXML
     private Button help;
@@ -51,8 +51,7 @@ public class MenuController implements Initializable
         Stage stage;
         Scene scene;
         Parent root;
-        if ( e.getSource() == new_patient )
-        {
+        if ( e.getSource() == new_patient ){
             stage = (Stage) new_patient.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("Register_Patient.fxml"));
             scene = new Scene(root);    
@@ -65,6 +64,14 @@ public class MenuController implements Initializable
         else if ( e.getSource() == patient_archive ){
             stage = (Stage) patient_archive.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("Patient_Data.fxml"));
+            scene = new Scene(root);
+            
+            stage.setScene(scene);
+            stage.show();
+        }
+        else if ( e.getSource() == new_diagnosis ){
+            stage = (Stage) new_diagnosis.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("Diagnosis_Menu.fxml"));
             scene = new Scene(root);
             
             stage.setScene(scene);

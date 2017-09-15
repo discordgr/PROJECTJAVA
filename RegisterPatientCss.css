@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 .root{
-    -fx-background-color: linear-gradient(#F2F0F2,#C9B385); /*#C9B385; mpez* #F2F0F2) aspro*/ 
+    -fx-background-color: linear-gradient(#F2F0F2,#5C95A1); /*#C9B385; mpez* #F2F0F2) aspro   #B7C5C9 asimi  #7EA37C prasinwpo #5CA19F teal */ 
 }
 
 .tab-pane .tab-header-area .tab-header-background {
@@ -32,7 +32,7 @@ and open the template in the editor.
 
 .tab-pane .tab:selected
 {
-    -fx-background-color: #3c3c3c;
+    -fx-background-color: #1772D4;
 }
 
 .tab .tab-label { 
@@ -44,7 +44,7 @@ and open the template in the editor.
 
 .tab:selected .tab-label { 
     -fx-alignment: CENTER;
-    -fx-text-fill: #96b946;
+    -fx-text-fill: #1d1d1d;
 }
 
 .tab-pane:top *.tab-header-area {

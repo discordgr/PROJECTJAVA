@@ -33,6 +33,18 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+            <Button id="statistic_data" fx:id="new_diagnosis" minWidth="512.0" mnemonicParsing="false" onAction="#menuActions" text="Καταχώρηση Νέας Διάγνωσης">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Health%20Book_48px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
             <Button id="patient_archive" fx:id="patient_archive" minWidth="512.0" mnemonicParsing="false" onAction="#menuActions" text="Αρχείο Ασθενών">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
@@ -45,7 +57,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="statistic_data" minWidth="512.0" mnemonicParsing="false" onAction="#menuActions" text="Στατιστικά Στοιχεία">
+            <Button id="statistic_data" layoutX="266.0" layoutY="210.0" minWidth="512.0" mnemonicParsing="false" onAction="#menuActions" text="Στατιστικά Στοιχεία">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>

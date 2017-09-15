@@ -34,13 +34,16 @@ public class Register_PatientController implements Initializable {
     ObservableList<String> familyStatusList = FXCollections.observableArrayList("Άγαμος","Έγγαμος","Χήρος","Διαζευγμένος","Σε σχέση","Αρραβωνιασμένος");
     ObservableList<String> genderList = FXCollections.observableArrayList("Άνδρας","Γυναίκα","Άλλο");
     ObservableList<String> educationList = FXCollections.observableArrayList("Δημοτικό","Γυμνάσιο","Λύκειο","ΑΕΙ","ΤΕΙ","ΤΕΕ","Μεταπτυχιακό","Διδακτορικό","Άλλο");
-    ObservableList<String> incomeList = FXCollections.observableArrayList("Μικρό","Μεσαίο","Μεγάλο");
+    ObservableList<String> incomeList = FXCollections.observableArrayList("Χαμηλό","Μεσαίο","Μεγάλο");
+    ObservableList<String> religionList = FXCollections.observableArrayList("Χριστιανισμός","Ινδουϊσμός","Ιουδαϊσμός","Ισλαμισμός","Άλλες θρησκείες");
+    ObservableList<String> birthList = FXCollections.observableArrayList("Φυσιολογικός","Με Καισαρική");
     
     //public LoginModel store;
     public LoginModel loginmodel2 = new LoginModel();
     
     @FXML
     private TabPane registerPane;
+    
     @FXML
     private TextField firstName;
     
@@ -63,6 +66,12 @@ public class Register_PatientController implements Initializable {
     private ChoiceBox incomeBox;
     
     @FXML
+    private ChoiceBox religionBox;
+    
+    @FXML
+    private ChoiceBox birthBox;
+    
+    @FXML
     private Button cancel1;
     
     @FXML
@@ -71,8 +80,57 @@ public class Register_PatientController implements Initializable {
     @FXML
     private Button cancel2;
     
+    
+    // Comment Buttons
     @FXML
-    private Button cancel3;
+    private Button comment_kids;
+    
+    @FXML
+    private Button comment_education;
+    
+    @FXML
+    private Button comment_phone;
+    
+    @FXML
+    private Button comment_political;
+    
+    @FXML
+    private Button comment_period;
+    
+    @FXML
+    private Button comment_sexual_life;
+    
+    @FXML
+    private Button comment_sexual_orientation;
+    
+    @FXML
+    private Button comment_personal_interest;
+    
+    @FXML
+    private Button comment_birth_problem;
+    
+    @FXML
+    private Button comment_physical_illness;
+    
+    @FXML
+    private Button comment_history;
+    
+    @FXML
+    private Button comment_medication_use;
+    
+    @FXML
+    private Button comment_diagnostics_test;
+    
+    @FXML
+    private Button comment_diagnosis;
+    
+    @FXML
+    private Button comment_hospitalization;
+    // End Of Comment Buttons
+    
+    
+    @FXML
+    private Button bmi;
     
     @FXML
     private Button next;
@@ -80,44 +138,50 @@ public class Register_PatientController implements Initializable {
     @FXML
     private RadioButton yes;
     
+    
+    // Toggle Groups
     @FXML
     private ToggleGroup Kids;
-    @FXML
-    private ToggleGroup Tropos_gennisis;
-    @FXML
-    private ToggleGroup Tropos_gennisis1;
-    @FXML
-    private ToggleGroup Tropos_gennisis11;
     
+    @FXML
+    private ToggleGroup BirthProblem;
     
+    @FXML
+    private ToggleGroup TraumaticEvent;
+    
+    @FXML
+    private ToggleGroup PastPhysicalIllness;
+    
+    @FXML
+    private ToggleGroup Historyillness;
+    
+    @FXML
+    private ToggleGroup PastMedicationUse;
+    
+    @FXML
+    private ToggleGroup PastDiagnosticTests;
+    
+    @FXML
+    private ToggleGroup PastDiagnosis;
+    
+    @FXML
+    private ToggleGroup PastHospitalization;
+    // End of Toggle Groups
     
     /**
      * Initializes the controller class.
      */
-    //@FXML
-    /*public void storePatientData(ActionEvent e) throws Exception{
-        String sql = "INSERT INTO patient(firstname,lastname,age,gender,familystatus) VALUES(?,?,?,?,?)";
-        
-        if (e.getSource() == save1 ){
-            try(  PreparedStatement pstmt = store.connection.prepareStatement(sql)) {
-                 pstmt.setString(1, firstName.getText() );
-                 pstmt.setString(2, lastName.getText() );
-                 pstmt.setInt(3, Integer.parseInt(age.getText()) );
-                 pstmt.setString(4, genderBox.getSelectionModel().getSelectedItem().toString());
-                 pstmt.setString(5, familyStatusBox.getSelectionModel().getSelectedItem().toString());
-                 pstmt.executeUpdate();
-            }catch (SQLException er) {
-            System.out.println(er.getMessage());
-            }
-        }
-    }*/
+    
     
     
     @FXML
-    private void cancelAction(ActionEvent e) throws Exception{
+    private void registerTabAction(ActionEvent e) throws Exception{
         Stage stage;
+        Stage stage2;
         Scene scene;
+        Scene scene2;
         Parent root;
+        Parent root2;
         if ( e.getSource() == cancel1 ) {
             stage = (Stage) cancel1.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
@@ -157,6 +221,161 @@ public class Register_PatientController implements Initializable {
             registerPane.getSelectionModel().selectNext();
 
         }
+        else if ( e.getSource() == comment_kids ){
+            //stage2 = (Stage) comment_kids.getScene().getWindow();
+            root2 = FXMLLoader.load(getClass().getResource("Comment_Window.fxml"));
+            scene2 = new Scene(root2);
+            
+            stage2 = new Stage();
+            stage2.setScene(scene2);
+            stage2.setMaxWidth(350);
+            stage2.setMaxHeight(250);
+            stage2.show();
+        }
+        else if ( e.getSource() == comment_education ){
+            //stage2 = (Stage) comment_education.getScene().getWindow();
+            root2 = FXMLLoader.load(getClass().getResource("Comment_Window.fxml"));
+            scene2 = new Scene(root2);
+            
+            stage2 = new Stage();
+            stage2.setScene(scene2);
+            stage2.setMaxWidth(350);
+            stage2.setMaxHeight(250);
+            stage2.show();
+        }
+        else if ( e.getSource() == comment_political ){
+            //stage2 = (Stage) comment_political.getScene().getWindow();
+            root2 = FXMLLoader.load(getClass().getResource("Comment_Window.fxml"));
+            scene2 = new Scene(root2);
+            
+            stage2 = new Stage();
+            stage2.setScene(scene2);
+            stage2.setMaxWidth(350);
+            stage2.setMaxHeight(250);
+            stage2.show();
+        }
+        else if ( e.getSource() == bmi ){
+            //stage2 = (Stage) bmi.getScene().getWindow();
+            root2 = FXMLLoader.load(getClass().getResource("BMI.fxml"));
+            scene2 = new Scene(root2);
+            
+            stage2 = new Stage();
+            stage2.setScene(scene2);
+            stage2.setMaxWidth(350);
+            stage2.setMaxHeight(250);
+            stage2.show();
+        }
+        else if ( e.getSource() == comment_period ){
+            root2 = FXMLLoader.load(getClass().getResource("Comment_Window.fxml"));
+            scene2 = new Scene(root2);
+            
+            stage2 = new Stage();
+            stage2.setScene(scene2);
+            stage2.setMaxWidth(350);
+            stage2.setMaxHeight(250);
+            stage2.show();
+        }
+        else if ( e.getSource() == comment_sexual_life ){
+            root2 = FXMLLoader.load(getClass().getResource("Comment_Window.fxml"));
+            scene2 = new Scene(root2);
+            
+            stage2 = new Stage();
+            stage2.setScene(scene2);
+            stage2.setMaxWidth(350);
+            stage2.setMaxHeight(250);
+            stage2.show();
+        }
+        else if ( e.getSource() == comment_sexual_orientation ){
+            root2 = FXMLLoader.load(getClass().getResource("Comment_Window.fxml"));
+            scene2 = new Scene(root2);
+            
+            stage2 = new Stage();
+            stage2.setScene(scene2);
+            stage2.setMaxWidth(350);
+            stage2.setMaxHeight(250);
+            stage2.show();
+        }
+        else if ( e.getSource() == comment_personal_interest ){
+            root2 = FXMLLoader.load(getClass().getResource("Comment_Window.fxml"));
+            scene2 = new Scene(root2);
+            
+            stage2 = new Stage();
+            stage2.setScene(scene2);
+            stage2.setMaxWidth(350);
+            stage2.setMaxHeight(250);
+            stage2.show();
+        }
+        else if ( e.getSource() == comment_birth_problem ){
+            root2 = FXMLLoader.load(getClass().getResource("Comment_Window.fxml"));
+            scene2 = new Scene(root2);
+            
+            stage2 = new Stage();
+            stage2.setScene(scene2);
+            stage2.setMaxWidth(350);
+            stage2.setMaxHeight(250);
+            stage2.show();
+        }
+        else if ( e.getSource() == comment_physical_illness ){
+            root2 = FXMLLoader.load(getClass().getResource("Comment_Window.fxml"));
+            scene2 = new Scene(root2);
+            
+            stage2 = new Stage();
+            stage2.setScene(scene2);
+            stage2.setMaxWidth(350);
+            stage2.setMaxHeight(250);
+            stage2.show();
+        }
+        else if ( e.getSource() == comment_history ){
+            root2 = FXMLLoader.load(getClass().getResource("Comment_Window.fxml"));
+            scene2 = new Scene(root2);
+            
+            stage2 = new Stage();
+            stage2.setScene(scene2);
+            stage2.setMaxWidth(350);
+            stage2.setMaxHeight(250);
+            stage2.show();
+        }
+        else if ( e.getSource() == comment_medication_use ){
+            root2 = FXMLLoader.load(getClass().getResource("Comment_Window.fxml"));
+            scene2 = new Scene(root2);
+            
+            stage2 = new Stage();
+            stage2.setScene(scene2);
+            stage2.setMaxWidth(350);
+            stage2.setMaxHeight(250);
+            stage2.show();
+        }
+        else if ( e.getSource() == comment_diagnostics_test ){
+            root2 = FXMLLoader.load(getClass().getResource("Comment_Window.fxml"));
+            scene2 = new Scene(root2);
+            
+            stage2 = new Stage();
+            stage2.setScene(scene2);
+            stage2.setMaxWidth(350);
+            stage2.setMaxHeight(250);
+            stage2.show();
+        }
+        else if ( e.getSource() == comment_diagnosis ){
+            root2 = FXMLLoader.load(getClass().getResource("Comment_Window.fxml"));
+            scene2 = new Scene(root2);
+            
+            stage2 = new Stage();
+            stage2.setScene(scene2);
+            stage2.setMaxWidth(350);
+            stage2.setMaxHeight(250);
+            stage2.show();
+        }
+        else if ( e.getSource() == comment_hospitalization ){
+            root2 = FXMLLoader.load(getClass().getResource("Comment_Window.fxml"));
+            scene2 = new Scene(root2);
+            
+            stage2 = new Stage();
+            stage2.setScene(scene2);
+            stage2.setMaxWidth(350);
+            stage2.setMaxHeight(250);
+            stage2.show();
+        }
+            
                     
                 
     }
@@ -170,7 +389,11 @@ public class Register_PatientController implements Initializable {
         educationBox.setItems(educationList);
         educationBox.setValue("Δημοτικό");
         incomeBox.setItems(incomeList);
-        incomeBox.setValue("Μικρό");
+        incomeBox.setValue("Χαμηλό");
+        religionBox.setItems(religionList);
+        religionBox.setValue("Χριστιανισμός");
+        birthBox.setItems(birthList);
+        birthBox.setValue("Φυσιολογικός");
     }    
     
 }
