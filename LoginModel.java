@@ -65,13 +65,13 @@ public class LoginModel {
                                 String kids = rs.getString("KIDS");
                                 String education = rs.getString("EDUCATION");
 
-				System.out.println("name : " + firstname);
+				/*System.out.println("name : " + firstname);
 				System.out.println("sirname : " + lastname);
                                 System.out.println("age : " + age);
                                 System.out.println("Gender : " + gender);
                                 System.out.println("Family Status : " + family);
                                 System.out.println("Kids : " + kids);
-                                System.out.println("Education : " + education);  
+                                System.out.println("Education : " + education); */ 
                                 Patient p = new Patient(firstname,lastname,age,gender,family,kids,education);
                                 patientData.add(p);
 			}
@@ -79,6 +79,30 @@ public class LoginModel {
                 ex.printStackTrace();
             }
             return patientData;
+        }
+         
+        public ObservableList<Symptom> selectSymptomValue(){
+            connection = Database_Connection.Connector();
+            ObservableList<Symptom> symptomsData = FXCollections.observableArrayList();
+            try {
+                PreparedStatement ps = connection.prepareStatement("SELECT * FROM symptoms");
+                ResultSet rs = ps.executeQuery();
+                System.out.println("Select Successfull");
+                while (rs.next()) {
+                                
+				
+                                String name = rs.getString("NAME");
+                                String category = rs.getString("CATEGORY");
+
+				//System.out.println("name : " + name);
+                                //System.out.println("category : " + category);  
+                                Symptom s = new Symptom(name,category);
+                                symptomsData.add(s);
+			}
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            return symptomsData;
         }
         
 }

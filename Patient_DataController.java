@@ -56,6 +56,9 @@ public class Patient_DataController implements Initializable {
     @FXML
     private Button cancel;
     
+    @FXML
+    private Button diagnose;
+    
     public LoginModel loginModelTable = new LoginModel();
     
     @FXML
@@ -77,6 +80,22 @@ public class Patient_DataController implements Initializable {
             stage.setScene(scene);
             stage.show();
         }
+        else if(e.getSource() == diagnose)
+        {
+            stage = (Stage) diagnose.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("Symptom_Data.fxml"));
+            scene = new Scene(root);    
+            
+            stage.setX(0);
+            stage.setY(0);
+            stage.setMinWidth(800);
+            stage.setMinHeight(600);
+            stage.setWidth(1024);
+            stage.setHeight(768);
+            stage.setScene(scene);
+            stage.show();
+        }
+        
     }
     
     

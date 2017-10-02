@@ -136,6 +136,12 @@ public class Register_PatientController implements Initializable {
     private Button next;
     
     @FXML
+    private Button next1;
+    
+    @FXML
+    private Button next2;
+    
+    @FXML
     private RadioButton yes;
     
     
@@ -216,10 +222,14 @@ public class Register_PatientController implements Initializable {
             loginmodel2.insertValue(firstName.getText(),lastName.getText(),Integer.parseInt(age.getText()),genderBox.getValue().toString(),familyStatusBox.getValue().toString(),r1.getText(),educationBox.getValue().toString());
            
         }
-        else if(e.getSource() == next)
-        {
+        else if(e.getSource() == next){
             registerPane.getSelectionModel().selectNext();
-
+        }
+        else if(e.getSource() == next1){
+            registerPane.getSelectionModel().selectNext();
+        }
+        else if(e.getSource() == next2){
+            registerPane.getSelectionModel().selectNext();
         }
         else if ( e.getSource() == comment_kids ){
             //stage2 = (Stage) comment_kids.getScene().getWindow();

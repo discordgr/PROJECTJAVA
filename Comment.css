@@ -9,10 +9,10 @@ and open the template in the editor.
 */
 
 .button{
-    -fx-background-radius: 50%;
+    -fx-background-radius: 100%;
 }
 
 .button:hover{
     -fx-background-color: linear-gradient(#E6E9F0,#5CA19F);
-    -fx-background-insets: 0,1,2,0;
+    -fx-background-insets: 0,0,0,0;
 }

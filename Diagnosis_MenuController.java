@@ -53,6 +53,14 @@ public class Diagnosis_MenuController implements Initializable {
             //stage.setMaxHeight(768);
             stage.show();
         }
+        else if(e.getSource() == new_diagnosis_on_existing_patient)
+        {
+            stage = (Stage) new_diagnosis_on_existing_patient.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("Patient_Data.fxml"));
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
         else if ( e.getSource() == back )
         {
             stage = (Stage) back.getScene().getWindow();

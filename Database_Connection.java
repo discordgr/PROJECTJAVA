@@ -15,7 +15,7 @@ public class Database_Connection {
             try
             {
                 Class.forName("org.sqlite.JDBC");
-                Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Panayiotis\\Documents\\NetBeansProjects\\JavaFXApplication4\\MyDatabase.sqlite");
+                Connection conn = DriverManager.getConnection("jdbc:sqlite:MyDatabase.sqlite");
                 return conn;
             }
             catch(Exception e)

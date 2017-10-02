@@ -50,6 +50,9 @@
                                     </Label>
                                     <TextField fx:id="firstName" maxWidth="289.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0" />
                                  </children>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
                               </HBox>
                               <HBox minHeight="25.0" minWidth="500.0" prefHeight="25.0" prefWidth="500.0" spacing="15.0">
                                  <children>
@@ -60,6 +63,9 @@
                                     </Label>
                                     <TextField fx:id="lastName" maxWidth="303.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0" />
                                  </children>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
                               </HBox>
                               <HBox minHeight="25.0" minWidth="500.0" prefHeight="25.0" prefWidth="500.0" spacing="15.0">
                                  <children>
@@ -70,6 +76,9 @@
                                     </Label>
                                     <TextField fx:id="age" maxWidth="312.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0" />
                                  </children>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
                               </HBox>
                               <HBox minHeight="25.0" minWidth="500.0" prefHeight="25.0" prefWidth="500.0" spacing="15.0">
                                  <children>
@@ -80,6 +89,9 @@
                                     </Label>
                                     <ChoiceBox id="genderBox" fx:id="genderBox" maxWidth="280.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0" />
                                  </children>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
                               </HBox>
                               <HBox minHeight="25.0" minWidth="500.0" prefHeight="25.0" prefWidth="500.0" spacing="15.0">
                                  <children>
@@ -90,6 +102,9 @@
                                     </Label>
                                     <ChoiceBox id="familyStatusBox" fx:id="familyStatusBox" maxWidth="289.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0" />
                                  </children>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
                               </HBox>
                               <HBox minHeight="25.0" minWidth="500.0" prefHeight="25.0" prefWidth="500.0" spacing="15.0">
                                  <children>
@@ -106,9 +121,9 @@
                                     <RadioButton layoutX="275.0" layoutY="10.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="100.0" style="-fx-text-fill: black;" text="Όχι" toggleGroup="$Kids" />
                                     <Button fx:id="comment_kids" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="28.0" prefWidth="85.0" stylesheets="@Comment.css" text="Σχόλια">
                                        <graphic>
-                                          <ImageView fitHeight="20.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fitHeight="20.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@Positive_48px.png" />
+                                                <Image url="@Autograph_48px.png" />
                                              </image>
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
@@ -120,6 +135,9 @@
                                        </cursor>
                                     </Button>
                                  </children>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
                               </HBox>
                               <HBox minHeight="25.0" minWidth="500.0" prefHeight="25.0" prefWidth="500.0" spacing="15.0">
                                  <children>
@@ -133,7 +151,7 @@
                                        <graphic>
                                           <ImageView fitHeight="20.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@Positive_48px.png" />
+                                                <Image url="@Autograph_48px.png" />
                                              </image>
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
@@ -145,6 +163,9 @@
                                        </cursor>
                                     </Button>
                                  </children>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
                               </HBox>
                               <HBox layoutX="10.0" layoutY="61.0" maxHeight="25.0" maxWidth="1000.0" minHeight="25.0" minWidth="500.0" prefHeight="25.0" prefWidth="1000.0" spacing="15.0">
                                  <children>
@@ -155,6 +176,9 @@
                                     </Label>
                                     <TextField fx:id="firstName1" maxWidth="289.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0" />
                                  </children>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
                               </HBox>
                               <HBox layoutX="10.0" layoutY="166.0" minHeight="25.0" minWidth="500.0" prefHeight="25.0" prefWidth="500.0" spacing="15.0">
                                  <children>
@@ -165,6 +189,9 @@
                                     </Label>
                                     <ChoiceBox fx:id="incomeBox" maxWidth="280.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0" />
                                  </children>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
                               </HBox>
                               <HBox layoutX="10.0" layoutY="96.0" minHeight="25.0" minWidth="500.0" prefHeight="25.0" prefWidth="500.0" spacing="15.0">
                                  <children>
@@ -175,6 +202,9 @@
                                     </Label>
                                     <TextField maxWidth="303.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0" />
                                  </children>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
                               </HBox>
                               <HBox layoutX="10.0" layoutY="376.0" minHeight="25.0" minWidth="500.0" prefHeight="25.0" prefWidth="500.0" spacing="15.0">
                                  <children>
@@ -185,6 +215,9 @@
                                     </Label>
                                     <TextField maxWidth="303.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0" />
                                  </children>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
                               </HBox>
                               <HBox layoutX="10.0" layoutY="411.0" minHeight="25.0" minWidth="500.0" prefHeight="25.0" prefWidth="500.0" spacing="15.0">
                                  <children>
@@ -195,6 +228,9 @@
                                     </Label>
                                     <TextField maxWidth="303.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0" />
                                  </children>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
                               </HBox>
                            </children>
                            <padding>
@@ -406,7 +442,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" stylesheets="@SaveButton.css" text="Επόμενο">
+                              <Button fx:id="next1" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="40.0" prefWidth="100.0" stylesheets="@SaveButton.css" text="Επόμενο">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></Button>
@@ -687,10 +723,221 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" stylesheets="@SaveButton.css" text="Επόμενο">
+                              <Button fx:id="next2" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="40.0" prefWidth="100.0" stylesheets="@SaveButton.css" text="Επόμενο">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+         </content>
+      </Tab>
+      <Tab closable="false" text="Παρούσα Κατάσταση Ασθενή">
+         <content>
+            <ScrollPane>
+               <content>
+                  <GridPane>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1013.0" minWidth="10.0" prefWidth="1004.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="640.0" minHeight="10.0" prefHeight="542.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="138.0" minHeight="10.0" prefHeight="128.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <VBox prefHeight="851.0" prefWidth="1004.0" spacing="15.0">
+                           <children>
+                              <HBox maxHeight="25.0" maxWidth="1009.0" minHeight="25.0" minWidth="700.0" prefHeight="25.0" prefWidth="1009.0" spacing="15.0">
+                                 <children>
+                                    <Label maxHeight="25.0" maxWidth="350.0" minHeight="25.0" minWidth="350.0" prefHeight="25.0" prefWidth="350.0" text="Αίτημα:">
+                                       <font>
+                                          <Font name="Candara" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="comment_birth_problem11" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="28.0" prefWidth="85.0" stylesheets="@Comment.css" text="Σχόλια">
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@Positive_48px.png" />
+                                             </image>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="10.0" maxHeight="25.0" maxWidth="1026.0" minHeight="25.0" minWidth="700.0" prefHeight="25.0" prefWidth="1026.0" spacing="15.0">
+                                 <children>
+                                    <Label maxHeight="25.0" maxWidth="350.0" minHeight="25.0" minWidth="350.0" prefHeight="25.0" prefWidth="350.0" text="Εμφάνιση:">
+                                       <font>
+                                          <Font name="Candara" size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="50.0" maxHeight="25.0" maxWidth="1026.0" minHeight="25.0" minWidth="700.0" prefHeight="25.0" prefWidth="1026.0" spacing="15.0">
+                                 <children>
+                                    <Label maxHeight="25.0" maxWidth="350.0" minHeight="25.0" minWidth="350.0" prefHeight="25.0" prefWidth="350.0" text="Κινητική δραστηριότητα:">
+                                       <font>
+                                          <Font name="Candara" size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="90.0" maxHeight="25.0" maxWidth="1026.0" minHeight="25.0" minWidth="700.0" prefHeight="25.0" prefWidth="1026.0" spacing="15.0">
+                                 <children>
+                                    <Label maxHeight="25.0" maxWidth="350.0" minHeight="25.0" minWidth="350.0" prefHeight="25.0" prefWidth="350.0" text="Βλεματική επαφή:">
+                                       <font>
+                                          <Font name="Candara" size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="130.0" maxHeight="25.0" maxWidth="1026.0" minHeight="25.0" minWidth="700.0" prefHeight="25.0" prefWidth="1026.0" spacing="15.0">
+                                 <children>
+                                    <Label maxHeight="25.0" maxWidth="350.0" minHeight="25.0" minWidth="350.0" prefHeight="25.0" prefWidth="350.0" text="Ομιλία:">
+                                       <font>
+                                          <Font name="Candara" size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="210.0" maxHeight="25.0" maxWidth="1026.0" minHeight="25.0" minWidth="700.0" prefHeight="25.0" prefWidth="1026.0" spacing="15.0">
+                                 <children>
+                                    <Label maxHeight="25.0" maxWidth="350.0" minHeight="25.0" minWidth="350.0" prefHeight="25.0" prefWidth="350.0" text="Προσωπικότητα:">
+                                       <font>
+                                          <Font name="Candara" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <CheckBox mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Κάπνισμα" />
+                                    <CheckBox layoutX="375.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Ναρκωτικά" />
+                                    <CheckBox layoutX="490.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Αλκόολ" />
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="210.0" maxHeight="25.0" maxWidth="1026.0" minHeight="25.0" minWidth="700.0" prefHeight="25.0" prefWidth="1026.0" spacing="15.0">
+                                 <children>
+                                    <Label maxHeight="25.0" maxWidth="350.0" minHeight="25.0" minWidth="350.0" prefHeight="25.0" prefWidth="350.0" text="Παρούσες σωματικές νόσοι:">
+                                       <font>
+                                          <Font name="Candara" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <RadioButton fx:id="yes1211111" mnemonicParsing="false" prefHeight="24.0" prefWidth="85.0" style="-fx-text-fill: black;" text="Ναι">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="PastMedicationUse1" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton fx:id="yes11111111" mnemonicParsing="false" prefHeight="24.0" prefWidth="85.0" style="-fx-text-fill: black;" text="Όχι" toggleGroup="$PastMedicationUse1" />
+                                    <Button fx:id="comment_medication_use1" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="28.0" prefWidth="85.0" stylesheets="@Comment.css" text="Σχόλια">
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@Positive_48px.png" />
+                                             </image>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="290.0" maxHeight="25.0" maxWidth="1026.0" minHeight="25.0" minWidth="700.0" prefHeight="25.0" prefWidth="1026.0" spacing="15.0">
+                                 <children>
+                                    <Label maxHeight="25.0" maxWidth="350.0" minHeight="25.0" minWidth="350.0" prefHeight="25.0" prefWidth="350.0" text="Πρόσφατη χρήση ουσιών:">
+                                       <font>
+                                          <Font name="Candara" size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="330.0" maxHeight="25.0" maxWidth="1026.0" minHeight="25.0" minWidth="700.0" prefHeight="25.0" prefWidth="1026.0" spacing="15.0">
+                                 <children>
+                                    <Label maxHeight="25.0" maxWidth="350.0" minHeight="25.0" minWidth="350.0" prefHeight="25.0" prefWidth="350.0" text="Πρόσφατη χρήση φαρμάκων:">
+                                       <font>
+                                          <Font name="Candara" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <RadioButton fx:id="yes121111111" mnemonicParsing="false" prefHeight="24.0" prefWidth="85.0" style="-fx-text-fill: black;" text="Ναι">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="PastDiagnosis1" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton fx:id="yes1111111111" mnemonicParsing="false" prefHeight="24.0" prefWidth="85.0" style="-fx-text-fill: black;" text="Όχι" toggleGroup="$PastDiagnosis1" />
+                                    <Button fx:id="comment_diagnosis1" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="28.0" prefWidth="85.0" stylesheets="@Comment.css" text="Σχόλια">
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@Positive_48px.png" />
+                                             </image>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="370.0" maxHeight="25.0" maxWidth="1026.0" minHeight="25.0" minWidth="700.0" prefHeight="25.0" prefWidth="1026.0" spacing="15.0">
+                                 <children>
+                                    <Label maxHeight="25.0" maxWidth="350.0" minHeight="25.0" minWidth="350.0" prefHeight="25.0" prefWidth="350.0" text="Πρόσφατο τραυματικό γεγονός:">
+                                       <font>
+                                          <Font name="Candara" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <RadioButton fx:id="yes1211111111" mnemonicParsing="false" prefHeight="24.0" prefWidth="85.0" style="-fx-text-fill: black;" text="Ναι">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="PastHospitalization1" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton fx:id="yes11111111111" mnemonicParsing="false" prefHeight="24.0" prefWidth="85.0" style="-fx-text-fill: black;" text="Όχι" toggleGroup="$PastHospitalization1" />
+                                    <Button fx:id="comment_hospitalization1" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="28.0" prefWidth="85.0" stylesheets="@Comment.css" text="Σχόλια">
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@Positive_48px.png" />
+                                             </image>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <GridPane.margin>
+                              <Insets top="10.0" />
+                           </GridPane.margin>
+                        </VBox>
+                        <HBox alignment="CENTER" prefHeight="43.0" prefWidth="1004.0" spacing="70.0" GridPane.rowIndex="1">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#registerTabAction" prefHeight="40.0" prefWidth="100.0" stylesheets="@CancelButton.css" text="Άκυρο">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" stylesheets="@SaveButton.css" text="Επόμενο">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
                            </children>
                         </HBox>
                      </children>

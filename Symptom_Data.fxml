@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="736.0" prefWidth="982.0" stylesheets="@TableData.css" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication4.Patient_DataController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="736.0" prefWidth="982.0" stylesheets="@TableData.css" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication4.Symptom_DataController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -21,15 +21,10 @@
    <children>
       <VBox prefHeight="308.0" prefWidth="851.0">
          <children>
-            <TableView fx:id="dataTable" prefHeight="525.0" prefWidth="851.0">
+            <TableView fx:id="symptomsTable" prefHeight="525.0" prefWidth="851.0">
               <columns>
-                <TableColumn fx:id="nameColumn" maxWidth="-1.0" minWidth="125.0" prefWidth="-1.0" text="Όνομα" />
-                <TableColumn fx:id="lastnameColumn" maxWidth="-1.0" minWidth="125.0" prefWidth="-1.0" text="Επώνυμο" />
-                  <TableColumn fx:id="ageColumn" maxWidth="-1.0" minWidth="125.0" prefWidth="-1.0" text="Ηλικία" />
-                  <TableColumn fx:id="genderColumn" maxWidth="-1.0" minWidth="125.0" prefWidth="-1.0" text="Φύλο" />
-                  <TableColumn fx:id="familyColumn" maxWidth="-1.0" minWidth="180.0" prefWidth="-1.0" text="Οικογενειακή Κατάσταση" />
-                  <TableColumn fx:id="kidsColumn" maxWidth="-1.0" minWidth="125.0" prefWidth="-1.0" text="Παιδιά" />
-                  <TableColumn fx:id="educationColumn" maxWidth="-1.0" minWidth="125.0" prefWidth="-1.0" text="Εκπαίδευση" />
+                <TableColumn fx:id="nameColumn" maxWidth="531.0" minWidth="125.0" prefWidth="477.0" text="Όνομα" />
+                <TableColumn fx:id="categoryColumn" maxWidth="521.0" minWidth="15.0" prefWidth="477.0" text="Κατηγορία" />
               </columns>
             </TableView>
          </children>
@@ -41,7 +36,6 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="diagnose" mnemonicParsing="false" onAction="#cancelAction" prefHeight="40.0" prefWidth="100.0" stylesheets="@SaveButton.css" text="Diagnose" />
          </children>
       </HBox>
    </children>
