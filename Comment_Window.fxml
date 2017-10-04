@@ -33,7 +33,7 @@
             </HBox>
             <HBox prefHeight="130.0" prefWidth="350.0">
                <children>
-                  <TextArea />
+                  <TextArea fx:id="t1" />
                </children>
             </HBox>
          </children>

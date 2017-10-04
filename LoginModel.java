@@ -27,6 +27,10 @@ public class LoginModel {
             }
         }
         
+        public Connection getConnection(){
+            return Database_Connection.Connector();
+        }
+        
         public void insertValue(String name,String lastname,int age,String gender,String family,String kids,String education){
             connection = Database_Connection.Connector();
             try {
@@ -40,9 +44,6 @@ public class LoginModel {
                 ps.setString(7,education);
                 ps.executeUpdate();
                 System.out.println("Insert Successfull");
-            /*Statement st = connection.createStatement();
-            st.execute("INSERT INTO patients (firstname,sirname) VALUES('" + name
-                    + "," + sirname + "')");*/
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }

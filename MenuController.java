@@ -7,6 +7,10 @@ package javafxapplication4;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -27,7 +31,8 @@ import javafx.scene.*;
  */
 public class MenuController implements Initializable 
 {
-
+    private Connection con_create;
+    public static int id;
     public LoginModel loginmodel = new LoginModel();
     
     @FXML
@@ -57,6 +62,14 @@ public class MenuController implements Initializable
             scene = new Scene(root);    
             
             stage.setScene(scene);
+            try{
+                PreparedStatement ps = con_create.prepareStatement("INSERT INTO trashes(FIRSTNAME,LASTNAME,AGE,GENDER,FAMILY_STATUS,KIDS,KIDS_COMMENT,EDUCATION,EDUCATION_COMMENT,EMPLOYMENT,CLASS,ADDRESS,TELEPHONE,EMAIL,NATIONALITY,RELIGION,POLITICAL_VIEWS,MENSTRUATION,BMI,SEX_LIFE,SEXUAL_ORIENTATION,PERSONAL_INTERESTS,BIRTH_WAY,BIRTH_DEFECTS,BIRTH_DEFECTS_COMMENTS,PAST_TRAUMATIC_EVENT,PAST_PHYSICAL_ILLNESS,PAST_PHYSICAL_ILLNESS_COMMENTS,PAST_HISTORY_ILLNESS,PAST_HISTORY_ILLNESS_COMMENTS,PAST_DRUG_USE,PAST_MEDICATION_USE,PAST_MEDICATION_USE_COMMENTS,PAST_DIAGNOSTICS_TEST,PAST_DIAGNOSTICS_TEST_COMMENTS,PAST_DIAGNOSIS,PAST_DIAGNOSIS_COMMENTS,PAST_HOSPITALIZATION,PAST_HOSPITALIZATION_COMMENTS,REQUEST,APPEARANCE,MOVEMENT_ACTIVITY,EYE_CONTACT,SPEECH,PHYSICAL_ILLNESS,PHYSICAL_ILLNESS_COMMENTS,DRUG_USE,MEDICATION_USE,MEDICATION_USE_COMMENTS,TRAUMATIC_EVENT,TRAUMATIC_EVENT_COMMENTS,DIAGNOSTICS_TEST,DIAGNOSTICS_TEST_COMMENTS,PERSONALITY,HOSPITALIZATION,ID)" + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"); 
+                ps.setInt(56,id);
+                ps.executeUpdate();
+                ps.close();
+            }catch(SQLException exc){
+                exc.printStackTrace();
+            }
             //stage.setMaxWidth(1024);
             //stage.setMaxHeight(768);
             stage.show();
@@ -85,10 +98,23 @@ public class MenuController implements Initializable
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        con_create = loginmodel.getConnection();
+        try{
+            PreparedStatement ps = con_create.prepareStatement("SELECT ROWID FROM trashes ORDER BY ROWID DESC");
+            ResultSet rs = ps.executeQuery();
+            try{ 
+                id = rs.getInt("ROWID") + 1;
+            }catch(SQLException exc){
+                id = 1;
+            }
+            ps.close();
+            rs.close();
+        }catch (SQLException exc){
+            exc.printStackTrace();
+        }
+        System.out.println(id);
         if ( loginmodel.isDbConnected() ){
             System.out.println("Connection to Database Established!");
-            //loginmodel.insertValue();
-            //loginmodel.selectValue();
         }
         else{
             System.out.println("Connection to Database Failed!");
