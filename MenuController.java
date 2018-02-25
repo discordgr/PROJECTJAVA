@@ -112,7 +112,7 @@ public class MenuController implements Initializable
         }catch (SQLException exc){
             exc.printStackTrace();
         }
-        System.out.println(id);
+        //System.out.println(id);
         if ( loginmodel.isDbConnected() ){
             System.out.println("Connection to Database Established!");
         }

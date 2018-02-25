@@ -380,12 +380,8 @@ public class Register_PatientController implements Initializable {
             loginmodel2.insertValue(firstName.getText(),lastName.getText(),Integer.parseInt(age.getText()),genderBox.getValue().toString(),familyStatusBox.getValue().toString(),r1.getText(),educationBox.getValue().toString());
            
         }
-        else if (e.getSource() == save_all ){
-           
-        }
         else if(e.getSource() == next){
             if ( kids.getSelectedToggle() == null ){
-                System.out.println("O MALAKAS DEN PATISE");
                 flag_toggle = true;
             }else{
                 r1 = (RadioButton)kids.getSelectedToggle();
@@ -512,6 +508,9 @@ public class Register_PatientController implements Initializable {
                 exc.printStackTrace();
             }
             registerPane.getSelectionModel().selectNext();
+        }else if ( e.getSource() == save_all ) {
+            
+           
         }
         else if ( e.getSource() == comment_kids ){
             root2 = FXMLLoader.load(getClass().getResource("Comment_Window.fxml"));

@@ -5,33 +5,35 @@
  */
 package javafxapplication4;
 
+
 /**
  *
  * @author Panayiotis
  */
 public class Symptom {
     
-    private String name,category;
+    private String name,symptomId;
     
-    public Symptom(String name,String category){
+    public Symptom(String name,String symptomId){
         this.name = name;
-        this.category = category;
+        //this.category = category;
+        this.symptomId = symptomId;
+        //setGraphic(add_symptom);
     }
     
     public String getName(){
         return this.name;
     }
     
-    public String getCategory(){
-        return this.category;
-    }
-   
-    
     public void setName(String name){
         this.name = name;
     }
     
-    public void setCategory(String category){
-        this.category = category;
+    public void setSymptomId(String symptomId){
+        this.symptomId = symptomId;
+    }
+    
+    public String getSymptomId(){
+        return this.symptomId;
     }
 }

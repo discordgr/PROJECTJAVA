@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="742.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication4.Show_Possible_DiagnoseController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="434.0" minHeight="10.0" prefHeight="434.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="265.0" minHeight="10.0" prefHeight="109.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <TableView fx:id="disordersTable" prefHeight="453.0" prefWidth="742.0" stylesheets="@TableData.css">
+              <columns>
+                <TableColumn prefWidth="300.0" text="Όνομα" />
+                <TableColumn minWidth="0.0" prefWidth="75.0" text="ICD10" />
+                  <TableColumn minWidth="0.0" prefWidth="75.0" text="DSM5" />
+                  <TableColumn minWidth="0.0" prefWidth="150.0" text="Υπο-Κατηγορία" />
+                  <TableColumn minWidth="0.0" prefWidth="100.0" text="Ποσοστό" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.rowIndex="1">
+         <children>
+            <Button fx:id="cancel" mnemonicParsing="false" onAction="#cancelAction" prefHeight="40.0" prefWidth="200.0" stylesheets="@CancelButton.css" text="Επιστροφή στην Αρχική">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" stylesheets="@SaveButton.css" text="Καταχώρηση Περιστατικού">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</GridPane>
