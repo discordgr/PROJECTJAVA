@@ -339,10 +339,8 @@ public class LoginModel {
 				
                                 String name = rs.getString("NAME");
                                 String subCategory = rs.getString("SUBCATEGORY");
-                                boolean icd10 = rs.getBoolean("ICD10");
-                                boolean dsm5 = rs.getBoolean("DSM");
-				//System.out.println("name : " + name);
-                                //System.out.println("category : " + category);  
+                                boolean icd10 = (rs.getInt("ICD10")) != 0;
+                                boolean dsm5 = (rs.getInt("DSM5")) != 0;
                                 Disorder d = new Disorder(name,subCategory,icd10,dsm5,100);
                                 disordersData.add(d);
 			}
@@ -375,6 +373,7 @@ public class LoginModel {
             return a;
         }
         
+        // Auto prepei na fugei. Insert Symptoms stin basi apo to arr mesw toy xlsx
         public void insertSymptoms(String arr[][]){
             connection = Database_Connection.Connector();
             for ( int i = 0; i < 118; i++)
@@ -395,6 +394,25 @@ public class LoginModel {
                     }
                     ps.setString(5,arr[i][2]);
                     ps.setInt(6,Integer.parseInt(arr[i][12]));
+                    ps.executeUpdate();
+                    System.out.println("Insert " + i + " Successfull");
+                }catch (SQLException ex){
+                    ex.printStackTrace();
+                }
+            }
+        }
+        
+        public void insertDisorders(String arr[][]){
+            connection = Database_Connection.Connector();
+            for ( int i = 0; i < 15; i++)
+            {
+                try{
+                    PreparedStatement ps = connection.prepareStatement("INSERT INTO disorders (NAME,ICD10,DSM5,SUBCATEGORY,SYMPTOMS)" + "VALUES(?,?,?,?,?)");
+                    ps.setString(1, arr[i][0] );
+                    ps.setInt(2, Integer.parseInt(arr[i][1]));
+                    ps.setInt(3, Integer.parseInt(arr[i][2]));
+                    ps.setString(4,arr[i][3]);
+                    ps.setString(5,arr[i][4]);
                     ps.executeUpdate();
                     System.out.println("Insert " + i + " Successfull");
                 }catch (SQLException ex){

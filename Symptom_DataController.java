@@ -7,6 +7,11 @@ package javafxapplication4;
 
 import java.net.URL;
 import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import java.util.ResourceBundle;
@@ -140,12 +145,12 @@ public class Symptom_DataController implements Initializable {
     @FXML
     private Button remove;
     
+    public static int disorder_id;
     
     public LoginModel loginModelSymptomsTable = new LoginModel();
     
     private static ObservableList<Symptom> data = FXCollections.observableArrayList();
     
-    public static int k;
     
     @FXML
     private void cancelAction(ActionEvent e) throws Exception{
@@ -173,37 +178,51 @@ public class Symptom_DataController implements Initializable {
     
     @FXML
     private void proceedToDiagnose(ActionEvent e) throws Exception{
+        ArrayList<Integer> ids = new ArrayList<>();
+        //ids.add(54);
         String symptomsClicked = "";
-        int[] ids = new int[50];
+        //int[] ids = new int[50];
         int[][] b;
         for ( Symptom s1 : data){
             if(symptomsClicked.equals("")) symptomsClicked += s1.getSymptomId();
                 else symptomsClicked += "," + s1.getSymptomId();
         } 
         String[] temp = symptomsClicked.split(",");
-        for ( int i = 0; i < temp.length; i++){
-            ids[i] = Integer.parseInt(temp[i]);
-            System.out.println(ids[i]);
+        for (int i = 0; i < temp.length; i++){
+            ids.add(Integer.parseInt(temp[i]));
+            System.out.println("To id" + i + " einai " + ids.get(i));
         }
-        b = loginModelSymptomsTable.getDisorders();
         
-        for(k = 0; k < 3; k++)
+        Collections.sort(ids);
+
+
+        b = loginModelSymptomsTable.getDisorders();
+        for ( int i = 0; i < 20; i++){
+            for ( int j = 0; j < 40; j++ ){
+                System.out.print(b[i][j] + " ");
+            }
+            System.out.println();
+        }
+        
+        //To k einai o arithmos twn disorder 
+        for(int k = 0; k < 15; k++)
         {
             boolean flag = true;
-            for(int c = 0; c < 4; c++)
+            for(int c = 0; c < ids.size()-1; c++)
             {
-                if(ids[c] != b[k][c])
+                if(ids.get(c) != b[k][c])
                 {
                     System.out.println("ASGSFHAGSHASGHJSFAJFSJA");
                     flag = false;
                     break;
                 }
             }
+            disorder_id = k+1;
             if(flag) break;
+            
         }
         
-        
-        System.out.println("To k einai " + k);
+        System.out.println("To disorder_id einai " + disorder_id);
         
         Stage stage;
         Scene scene;

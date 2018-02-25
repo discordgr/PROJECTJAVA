@@ -52,7 +52,7 @@ public class JavaFXApplication4 extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        /*
+        /* Gia sumptwmata
         XSSFWorkbook wb = new XSSFWorkbook(new FileInputStream("C:\\Users\\Panayiotis\\Desktop\\App.xlsx"));
         XSSFSheet sheet = wb.getSheetAt(0);
         
@@ -91,10 +91,70 @@ public class JavaFXApplication4 extends Application {
             }
             System.out.println();
         }
-        */
+        
+        
+        */ 
         //LoginModel loginmodelofmain = new LoginModel();
         //loginmodelofmain.insertSymptoms(arr);
         
+        /* Gia Disorders
+        XSSFWorkbook wb = new XSSFWorkbook(new FileInputStream("C:\\Users\\Panayiotis\\Desktop\\App.xlsx"));
+        XSSFSheet sheet = wb.getSheetAt(2);
+        
+        
+        String [][] arr = new String[15][5];
+        
+        DataFormatter formatter = new DataFormatter();
+        
+        
+        for(int i = 2; i < 17; i++)
+        {
+            
+            for(int j = 1; j < 6; j++)
+            {
+                    
+                    
+                    String val = formatter.formatCellValue(sheet.getRow(i).getCell(j)); 
+                    
+                    
+                    if ( j == 2 && val.equals("") ){
+                        arr[i-2][1] = "0"; 
+                        //System.out.println("MPIKA GIA I = " + i);
+                    }
+                    else if ( j == 2 && !val.equals("") ) 
+                    {
+                        arr[i-2][1] = "1";
+                    }
+                    else if ( j == 3 && val.equals("") )
+                    {
+                        arr[i-2][2] = "0";
+                    }
+                    else if ( j == 3 && !val.equals(""))   
+                    { 
+                        arr[i-2][2] = "1";
+                    }
+                    else
+                    {
+                        arr[i-2][j-1] = val;
+                    }
+
+                      
+                
+            }
+        }
+        
+        for(int i = 0; i < 15; i++)
+        {
+            for(int j = 0; j < 5; j++)
+            {
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+        
+        LoginModel loginmodelofmain = new LoginModel();
+        loginmodelofmain.insertDisorders(arr);
+        */
         launch(args);
     }
     

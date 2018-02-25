@@ -30,6 +30,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import static javafxapplication4.Symptom_DataController.disorder_id;
 
 /**
  * FXML Controller class
@@ -93,7 +94,7 @@ public class Show_Possible_DiagnoseController implements Initializable {
         icd10Column.setCellValueFactory(new PropertyValueFactory<>("icd10"));
         dsm5Column.setCellValueFactory(new PropertyValueFactory<>("dsm5"));
         percentColumn.setCellValueFactory(new PropertyValueFactory<>("percent"));
-        disordersTable.setItems(loginModelDisordersTable.selectDisorder(1));
+        disordersTable.setItems(loginModelDisordersTable.selectDisorder(disorder_id));
     }    
     
 }

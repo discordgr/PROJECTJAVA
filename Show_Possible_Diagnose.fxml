@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="742.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication4.Show_Possible_DiagnoseController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="742.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication4.Show_Possible_DiagnoseController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -23,11 +23,11 @@
          <children>
             <TableView fx:id="disordersTable" prefHeight="453.0" prefWidth="742.0" stylesheets="@TableData.css">
               <columns>
-                <TableColumn prefWidth="300.0" text="Όνομα" />
-                <TableColumn minWidth="0.0" prefWidth="75.0" text="ICD10" />
-                  <TableColumn minWidth="0.0" prefWidth="75.0" text="DSM5" />
-                  <TableColumn minWidth="0.0" prefWidth="150.0" text="Υπο-Κατηγορία" />
-                  <TableColumn minWidth="0.0" prefWidth="100.0" text="Ποσοστό" />
+                <TableColumn fx:id="nameColumn" prefWidth="300.0" text="Όνομα" />
+                <TableColumn fx:id="icd10Column" minWidth="0.0" prefWidth="75.0" text="ICD10" />
+                  <TableColumn fx:id="dsm5Column" minWidth="0.0" prefWidth="75.0" text="DSM5" />
+                  <TableColumn fx:id="subCategoryColumn" minWidth="0.0" prefWidth="150.0" text="Υπο-Κατηγορία" />
+                  <TableColumn fx:id="percentColumn" minWidth="0.0" prefWidth="100.0" text="Ποσοστό" />
               </columns>
             </TableView>
          </children>

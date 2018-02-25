@@ -39,11 +39,11 @@ public class Disorder {
         return subCategory;
     }
 
-    public boolean isIcd10() {
+    public boolean getIcd10() {
         return icd10;
     }
 
-    public boolean isDsm5() {
+    public boolean getDsm5() {
         return dsm5;
     }
 
