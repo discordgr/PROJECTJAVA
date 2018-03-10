@@ -13,12 +13,22 @@ package javafxapplication4;
 public class Symptom {
     
     private String name,symptomId;
+    private int subSymptomCategory;
     
-    public Symptom(String name,String symptomId){
+    public Symptom(String name,String symptomId, int subSymptomCategory){
         this.name = name;
         //this.category = category;
         this.symptomId = symptomId;
         //setGraphic(add_symptom);
+        this.subSymptomCategory = subSymptomCategory;
+    }
+
+    public void setSubSymptomCategory(int subSymptomCategory) {
+        this.subSymptomCategory = subSymptomCategory;
+    }
+
+    public int getSubSymptomCategory() {
+        return subSymptomCategory;
     }
     
     public String getName(){

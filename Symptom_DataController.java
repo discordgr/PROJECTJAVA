@@ -5,6 +5,7 @@
  */
 package javafxapplication4;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -15,6 +16,8 @@ import java.util.List;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
@@ -33,6 +36,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -149,7 +153,9 @@ public class Symptom_DataController implements Initializable {
     
     public LoginModel loginModelSymptomsTable = new LoginModel();
     
-    private static ObservableList<Symptom> data = FXCollections.observableArrayList();
+    public static ObservableList<Symptom> data = FXCollections.observableArrayList();
+    
+    public static ObservableList<Symptom> subSymptoms = FXCollections.observableArrayList();
     
     
     @FXML
@@ -208,7 +214,7 @@ public class Symptom_DataController implements Initializable {
         for(int k = 0; k < 15; k++)
         {
             boolean flag = true;
-            for(int c = 0; c < ids.size()-1; c++)
+            for(int c = 0; c < ids.size(); c++)
             {
                 if(ids.get(c) != b[k][c])
                 {
@@ -246,7 +252,7 @@ public class Symptom_DataController implements Initializable {
     }
     
     @FXML
-    private void selectSymptom(MouseEvent e) throws Exception{
+    private void removeSymptom(MouseEvent e) throws Exception{
          if (e.getClickCount() == 1) {
             Symptom s = addedSymptomsTable.getSelectionModel().getSelectedItem();
             if ( s != null ){
@@ -313,7 +319,9 @@ public class Symptom_DataController implements Initializable {
             button.setOnAction(e -> {
                 
                 Symptom symptom = getItem();
-
+                this.tableRowProperty().get().setStyle("-fx-background-color: #15ED15;");
+                
+                
                 boolean flag = false;
                 for (Symptom s1 : data){
                     if ( s1.getSymptomId().equals(symptom.getSymptomId())) {
@@ -324,8 +332,8 @@ public class Symptom_DataController implements Initializable {
                 if ( flag == false){
                     data.add(symptom);
                 }
-
-
+                
+                
                 System.out.println(symptom.getSymptomId());
             });
         }
@@ -376,11 +384,58 @@ public class Symptom_DataController implements Initializable {
     actionColumnSkepsis.setCellFactory(column -> new TableCell<Symptom, Symptom>() {
         private final Button button = new Button("Select");
         {
+           
             button.setOnAction(e -> {
                 
                 Symptom symptom = getItem();
+                boolean anoiksePopUpWindow;
+                Parent root = null;
+                Scene scene;
+                Stage stage;
+                
+                if(symptom.getSymptomId().equals("109"))
+                {
+                    anoiksePopUpWindow = true;
+                    subSymptoms = loginModelSymptomsTable.selectSubSymptoms(1);
+                    try {
+                    root = FXMLLoader.load(getClass().getResource("PopupSymptoms.fxml"));
+                    } catch (IOException ex) {
+                        Logger.getLogger(Symptom_DataController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    scene = new Scene(root);
 
+                    stage = new Stage();
+                    stage.setScene(scene);
+                    stage.setMaxWidth(1024);
+                    stage.setMaxHeight(768);
+
+                    stage.initModality(Modality.APPLICATION_MODAL);
+
+                    stage.show();
+                }else if (symptom.getSymptomId().equals("110"))
+                {
+                    anoiksePopUpWindow = true;
+                    subSymptoms = loginModelSymptomsTable.selectSubSymptoms(2);
+                    try {
+                    root = FXMLLoader.load(getClass().getResource("PopupSymptoms.fxml"));
+                    } catch (IOException ex) {
+                        Logger.getLogger(Symptom_DataController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    scene = new Scene(root);
+
+                    stage = new Stage();
+                    stage.setScene(scene);
+                    stage.setMaxWidth(1024);
+                    stage.setMaxHeight(768);
+
+                    stage.initModality(Modality.APPLICATION_MODAL);
+
+                    stage.show();
+
+                }
+                
                 boolean flag = false;
+                
                 for (Symptom s1 : data){
                     if ( s1.getSymptomId().equals(symptom.getSymptomId())) {
                         flag = true;
@@ -391,7 +446,9 @@ public class Symptom_DataController implements Initializable {
                     data.add(symptom);
                 }
 
-
+                
+                
+                
                 System.out.println(symptom.getSymptomId());
             });
         }

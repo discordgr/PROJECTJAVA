@@ -101,7 +101,8 @@ public class LoginModel {
                             String symptomId = rs.getString("ID");
                             //System.out.println("name : " + name);
                             //System.out.println("category : " + category);  
-                            Symptom s = new Symptom(name,symptomId);
+                            int subSymptomCategory = rs.getInt("SUBSYMPTOM_CATEGORY");
+                            Symptom s = new Symptom(name,symptomId,subSymptomCategory);
                             symptomsData.add(s);
 			}
             } catch (SQLException ex) {
@@ -131,7 +132,8 @@ public class LoginModel {
                             String symptomId = rs.getString("ID");
                             //System.out.println("name : " + name);
                             //System.out.println("category : " + category);  
-                            Symptom s = new Symptom(name,symptomId);
+                            int subSymptomCategory = rs.getInt("SUBSYMPTOM_CATEGORY");
+                            Symptom s = new Symptom(name,symptomId,subSymptomCategory);
                             symptomsData.add(s);
 			}
             } catch (SQLException ex) {
@@ -159,7 +161,8 @@ public class LoginModel {
                             String symptomId = rs.getString("ID");
                             //System.out.println("name : " + name);
                             //System.out.println("category : " + category);  
-                            Symptom s = new Symptom(name,symptomId);
+                            int subSymptomCategory = rs.getInt("SUBSYMPTOM_CATEGORY");
+                            Symptom s = new Symptom(name,symptomId,subSymptomCategory);
                             symptomsData.add(s);
 			}
             } catch (SQLException ex) {
@@ -185,7 +188,8 @@ public class LoginModel {
                             String symptomId = rs.getString("ID");
                             //System.out.println("name : " + name);
                             //System.out.println("category : " + category);  
-                            Symptom s = new Symptom(name,symptomId);
+                            int subSymptomCategory = rs.getInt("SUBSYMPTOM_CATEGORY");
+                            Symptom s = new Symptom(name,symptomId,subSymptomCategory);
                             symptomsData.add(s);
 			}
             } catch (SQLException ex) {
@@ -212,7 +216,8 @@ public class LoginModel {
                             String symptomId = rs.getString("ID");
                             //System.out.println("name : " + name);
                             //System.out.println("category : " + category);  
-                            Symptom s = new Symptom(name,symptomId);
+                            int subSymptomCategory = rs.getInt("SUBSYMPTOM_CATEGORY");
+                            Symptom s = new Symptom(name,symptomId,subSymptomCategory);
                             symptomsData.add(s);
 			}
             } catch (SQLException ex) {
@@ -238,7 +243,8 @@ public class LoginModel {
                             String symptomId = rs.getString("ID");
                             //System.out.println("name : " + name);
                             //System.out.println("category : " + category);  
-                            Symptom s = new Symptom(name,symptomId);
+                            int subSymptomCategory = rs.getInt("SUBSYMPTOM_CATEGORY");
+                            Symptom s = new Symptom(name,symptomId,subSymptomCategory);
                             symptomsData.add(s);
 			}
             } catch (SQLException ex) {
@@ -264,7 +270,8 @@ public class LoginModel {
                             String symptomId = rs.getString("ID");
                             //System.out.println("name : " + name);
                             //System.out.println("category : " + category);  
-                            Symptom s = new Symptom(name,symptomId);
+                            int subSymptomCategory = rs.getInt("SUBSYMPTOM_CATEGORY");
+                            Symptom s = new Symptom(name,symptomId,subSymptomCategory);
                             symptomsData.add(s);
 			}
             } catch (SQLException ex) {
@@ -291,7 +298,8 @@ public class LoginModel {
                             String symptomId = rs.getString("ID");
                             //System.out.println("name : " + name);
                             //System.out.println("category : " + category);  
-                            Symptom s = new Symptom(name,symptomId);
+                            int subSymptomCategory = rs.getInt("SUBSYMPTOM_CATEGORY");
+                            Symptom s = new Symptom(name,symptomId,subSymptomCategory);
                             symptomsData.add(s);
 			}
             } catch (SQLException ex) {
@@ -315,8 +323,9 @@ public class LoginModel {
                             String name = rs.getString("NAME");
                             String symptomId = rs.getString("ID");
                             //System.out.println("name : " + name);
-                            //System.out.println("category : " + category);  
-                            Symptom s = new Symptom(name,symptomId);
+                            //System.out.println("category : " + category);
+                            int subSymptomCategory = rs.getInt("SUBSYMPTOM_CATEGORY");
+                            Symptom s = new Symptom(name,symptomId,subSymptomCategory);
                             symptomsData.add(s);
 			}
             } catch (SQLException ex) {
@@ -419,6 +428,31 @@ public class LoginModel {
                     ex.printStackTrace();
                 }
             }
+        }
+        
+        public ObservableList<Symptom> selectSubSymptoms(int k)
+        {
+            connection = Database_Connection.Connector();
+            ObservableList<Symptom> subSymptomsData = FXCollections.observableArrayList();
+            try{
+                PreparedStatement ps = connection.prepareStatement("SELECT * FROM symptoms WHERE SUBSYMPTOM_CATEGORY = ?");
+                ps.setInt(1, k);
+                ResultSet rs = ps.executeQuery();
+                System.out.println("Select Successfull");
+                while (rs.next()) 
+                {
+                    String name = rs.getString("NAME");
+                    String symptomId = rs.getString("ID");
+                    int subSymptomCategory = rs.getInt("SUBSYMPTOM_CATEGORY");
+                    
+                    Symptom s = new Symptom(name,symptomId,subSymptomCategory);
+                    subSymptomsData.add(s);
+                }
+            }catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            return subSymptomsData;
+
         }
         
 }
