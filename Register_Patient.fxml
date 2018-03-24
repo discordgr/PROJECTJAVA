@@ -21,7 +21,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<TabPane fx:id="registerPane" minHeight="768.0" minWidth="1024.0" stylesheets="@RegisterPatientCss.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication4.Register_PatientController">
+<TabPane fx:id="registerPane" minHeight="768.0" minWidth="1024.0" stylesheets="@RegisterPatientCss.css" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication4.Register_PatientController">
    <tabs>
       <Tab closable="false" text="Εισαγωγικά Στοιχεία Ασθενή">
          <content>
@@ -119,7 +119,7 @@
                                        </toggleGroup>
                                     </RadioButton>
                                     <RadioButton layoutX="275.0" layoutY="10.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="100.0" style="-fx-text-fill: black;" text="Όχι" toggleGroup="$kids" />
-                                    <Button fx:id="comment_kids" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="28.0" prefWidth="85.0" stylesheets="@Comment.css" text="Σχόλια">
+                                    <Button fx:id="comment_kids" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" stylesheets="@Comment.css" text="Σχόλια">
                                        <graphic>
                                           <ImageView fitHeight="20.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -147,7 +147,7 @@
                                        </font>
                                     </Label>
                                     <ChoiceBox id="educationBox" fx:id="educationBox" maxWidth="293.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0" />
-                                    <Button fx:id="comment_education" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="28.0" prefWidth="85.0" stylesheets="@Comment.css" text="Σχόλια">
+                                    <Button fx:id="comment_education" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" stylesheets="@Comment.css" text="Σχόλια">
                                        <graphic>
                                           <ImageView fitHeight="20.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -239,17 +239,17 @@
                         </VBox>
                         <HBox alignment="CENTER" spacing="70.0" GridPane.rowIndex="1">
                            <children>
-                              <Button fx:id="cancel1" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="40.0" prefWidth="100.0" stylesheets="@CancelButton.css" text="Άκυρο">
+                              <Button fx:id="cancel1" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="40.0" stylesheets="@CancelButton.css" text="Άκυρο">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="save1" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="40.0" prefWidth="100.0" stylesheets="@SaveButton.css" text="Αποθήκευση">
+                              <Button fx:id="save1" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="40.0" stylesheets="@SaveButton.css" text="Αποθήκευση">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="next" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="40.0" prefWidth="100.0" stylesheets="@SaveButton.css" text="Επόμενο">
+                              <Button fx:id="next" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="40.0" stylesheets="@SaveButton.css" text="Επόμενο">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></Button>
@@ -303,7 +303,7 @@
                                           <Font name="Candara" size="18.0" />
                                        </font>
                                     </Label>
-                                    <Button fx:id="comment_political" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="28.0" prefWidth="85.0" stylesheets="@Comment.css" text="Σχόλια">
+                                    <Button fx:id="comment_political" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" stylesheets="@Comment.css" text="Σχόλια">
                                        <graphic>
                                           <ImageView fitHeight="20.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -327,7 +327,7 @@
                                           <Font name="Candara" size="18.0" />
                                        </font>
                                     </Label>
-                                    <Button fx:id="comment_period" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="28.0" prefWidth="85.0" stylesheets="@Comment.css" text="Σχόλια">
+                                    <Button fx:id="comment_period" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" stylesheets="@Comment.css" text="Σχόλια">
                                        <graphic>
                                           <ImageView fitHeight="20.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -351,7 +351,7 @@
                                           <Font name="Candara" size="18.0" />
                                        </font>
                                     </Label>
-                                    <Button fx:id="bmi" minWidth="200.0" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="25.0" prefWidth="200.0" stylesheets="@BMI.css" text="Υπολογισμός BMI">
+                                    <Button fx:id="bmi" minWidth="200.0" mnemonicParsing="false" onAction="#registerTabAction" stylesheets="@BMI.css" text="Υπολογισμός BMI">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
@@ -365,7 +365,7 @@
                                           <Font name="Candara" size="18.0" />
                                        </font>
                                     </Label>
-                                    <Button fx:id="comment_sexual_life" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="28.0" prefWidth="85.0" stylesheets="@Comment.css" text="Σχόλια">
+                                    <Button fx:id="comment_sexual_life" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" stylesheets="@Comment.css" text="Σχόλια">
                                        <graphic>
                                           <ImageView fitHeight="20.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -389,7 +389,7 @@
                                           <Font name="Candara" size="18.0" />
                                        </font>
                                     </Label>
-                                    <Button fx:id="comment_sexual_orientation" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="28.0" prefWidth="85.0" stylesheets="@Comment.css" text="Σχόλια">
+                                    <Button fx:id="comment_sexual_orientation" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" stylesheets="@Comment.css" text="Σχόλια">
                                        <graphic>
                                           <ImageView fitHeight="20.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -413,7 +413,7 @@
                                           <Font name="Candara" size="18.0" />
                                        </font>
                                     </Label>
-                                    <Button fx:id="comment_personal_interest" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="28.0" prefWidth="85.0" stylesheets="@Comment.css" text="Σχόλια">
+                                    <Button fx:id="comment_personal_interest" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" stylesheets="@Comment.css" text="Σχόλια">
                                        <graphic>
                                           <ImageView fitHeight="20.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -437,12 +437,12 @@
                         </VBox>
                         <HBox alignment="CENTER" prefHeight="43.0" prefWidth="1004.0" spacing="70.0" GridPane.rowIndex="1">
                            <children>
-                              <Button fx:id="cancel2" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="40.0" prefWidth="100.0" stylesheets="@CancelButton.css" text="Άκυρο">
+                              <Button fx:id="cancel2" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="40.0" stylesheets="@CancelButton.css" text="Άκυρο">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="next1" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="40.0" prefWidth="100.0" stylesheets="@SaveButton.css" text="Επόμενο">
+                              <Button fx:id="next1" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="40.0" stylesheets="@SaveButton.css" text="Επόμενο">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></Button>
@@ -486,7 +486,7 @@
                                        </font>
                                     </Label>
                                     <CheckBox fx:id="birthProblem" mnemonicParsing="false" prefHeight="48.0" prefWidth="21.0" />
-                                    <Button fx:id="comment_birth_problem" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="28.0" prefWidth="85.0" stylesheets="@Comment.css" text="Σχόλια">
+                                    <Button fx:id="comment_birth_problem" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" stylesheets="@Comment.css" text="Σχόλια">
                                        <graphic>
                                           <ImageView fitHeight="20.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -521,7 +521,7 @@
                                        </font>
                                     </Label>
                                     <CheckBox fx:id="pastPhysicalIllness" mnemonicParsing="false" prefHeight="40.0" prefWidth="21.0" />
-                                    <Button fx:id="comment_physical_illness" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="28.0" prefWidth="85.0" stylesheets="@Comment.css" text="Σχόλια">
+                                    <Button fx:id="comment_physical_illness" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" stylesheets="@Comment.css" text="Σχόλια">
                                        <graphic>
                                           <ImageView fitHeight="20.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -546,7 +546,7 @@
                                        </font>
                                     </Label>
                                     <CheckBox fx:id="pasthistoryIllness" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="35.0" prefWidth="21.0" />
-                                    <Button fx:id="comment_history" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="28.0" prefWidth="85.0" stylesheets="@Comment.css" text="Σχόλια">
+                                    <Button fx:id="comment_history" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" stylesheets="@Comment.css" text="Σχόλια">
                                        <graphic>
                                           <ImageView fitHeight="20.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -571,7 +571,7 @@
                                        </font>
                                     </Label>
                                     <CheckBox fx:id="pastMedicationUse" mnemonicParsing="false" prefHeight="38.0" prefWidth="21.0" />
-                                    <Button fx:id="comment_medication_use" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="28.0" prefWidth="85.0" stylesheets="@Comment.css" text="Σχόλια">
+                                    <Button fx:id="comment_medication_use" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" stylesheets="@Comment.css" text="Σχόλια">
                                        <graphic>
                                           <ImageView fitHeight="20.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -596,7 +596,7 @@
                                        </font>
                                     </Label>
                                     <CheckBox fx:id="pastDiagnosticTests" mnemonicParsing="false" prefHeight="43.0" prefWidth="21.0" />
-                                    <Button fx:id="comment_diagnostics_test" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="28.0" prefWidth="85.0" stylesheets="@Comment.css" text="Σχόλια">
+                                    <Button fx:id="comment_diagnostics_test" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" stylesheets="@Comment.css" text="Σχόλια">
                                        <graphic>
                                           <ImageView fitHeight="20.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -621,7 +621,7 @@
                                        </font>
                                     </Label>
                                     <CheckBox fx:id="pastDiagnosis" mnemonicParsing="false" prefHeight="37.0" prefWidth="21.0" />
-                                    <Button fx:id="comment_diagnosis" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="28.0" prefWidth="85.0" stylesheets="@Comment.css" text="Σχόλια">
+                                    <Button fx:id="comment_diagnosis" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" stylesheets="@Comment.css" text="Σχόλια">
                                        <graphic>
                                           <ImageView fitHeight="20.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -646,7 +646,7 @@
                                        </font>
                                     </Label>
                                     <CheckBox fx:id="pastHospitalization" mnemonicParsing="false" prefHeight="48.0" prefWidth="21.0" />
-                                    <Button fx:id="comment_hospitalization" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="28.0" prefWidth="85.0" stylesheets="@Comment.css" text="Σχόλια">
+                                    <Button fx:id="comment_hospitalization" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" stylesheets="@Comment.css" text="Σχόλια">
                                        <graphic>
                                           <ImageView fitHeight="20.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -670,9 +670,9 @@
                                           <Font name="Candara" size="18.0" />
                                        </font>
                                     </Label>
-                                    <CheckBox fx:id="smoking" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Κάπνισμα" />
-                                    <CheckBox fx:id="drugs" layoutX="375.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Ναρκωτικά" />
-                                    <CheckBox fx:id="alcohol" layoutX="490.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Αλκόολ" />
+                                    <CheckBox fx:id="smoking" mnemonicParsing="false" text="Κάπνισμα" />
+                                    <CheckBox fx:id="drugs" layoutX="375.0" layoutY="10.0" mnemonicParsing="false" text="Ναρκωτικά" />
+                                    <CheckBox fx:id="alcohol" layoutX="490.0" layoutY="10.0" mnemonicParsing="false" text="Αλκόολ" />
                                  </children>
                               </HBox>
                            </children>
@@ -682,12 +682,12 @@
                         </VBox>
                         <HBox alignment="CENTER" prefHeight="43.0" prefWidth="1004.0" spacing="70.0" GridPane.rowIndex="1">
                            <children>
-                              <Button fx:id="cancel3" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="40.0" prefWidth="100.0" stylesheets="@CancelButton.css" text="Άκυρο">
+                              <Button fx:id="cancel3" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="40.0" stylesheets="@CancelButton.css" text="Άκυρο">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="next2" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="40.0" prefWidth="100.0" stylesheets="@SaveButton.css" text="Επόμενο">
+                              <Button fx:id="next2" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="40.0" stylesheets="@SaveButton.css" text="Επόμενο">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></Button>
@@ -721,7 +721,7 @@
                                           <Font name="Candara" size="18.0" />
                                        </font>
                                     </Label>
-                                    <Button fx:id="comment_request" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="28.0" prefWidth="85.0" stylesheets="@Comment.css" text="Σχόλια">
+                                    <Button fx:id="comment_request" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" stylesheets="@Comment.css" text="Σχόλια">
                                        <graphic>
                                           <ImageView fitHeight="20.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -785,13 +785,13 @@
                                           <Font name="Candara" size="18.0" />
                                        </font>
                                     </Label>
-                                    <RadioButton fx:id="yes1211111" mnemonicParsing="false" prefHeight="24.0" prefWidth="85.0" style="-fx-text-fill: black;" text="Ναι">
+                                    <RadioButton fx:id="yes1211111" mnemonicParsing="false" style="-fx-text-fill: black;" text="Ναι">
                                        <toggleGroup>
                                           <ToggleGroup fx:id="physicalIllness" />
                                        </toggleGroup>
                                     </RadioButton>
-                                    <RadioButton fx:id="yes11111111" mnemonicParsing="false" prefHeight="24.0" prefWidth="85.0" style="-fx-text-fill: black;" text="Όχι" toggleGroup="$physicalIllness" />
-                                    <Button fx:id="comment_physical_illness_current" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="28.0" prefWidth="85.0" stylesheets="@Comment.css" text="Σχόλια">
+                                    <RadioButton fx:id="yes11111111" mnemonicParsing="false" style="-fx-text-fill: black;" text="Όχι" toggleGroup="$physicalIllness" />
+                                    <Button fx:id="comment_physical_illness_current" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" stylesheets="@Comment.css" text="Σχόλια">
                                        <graphic>
                                           <ImageView fitHeight="20.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -815,9 +815,9 @@
                                           <Font name="Candara" size="18.0" />
                                        </font>
                                     </Label>
-                                    <CheckBox mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Κάπνισμα" />
-                                    <CheckBox mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Ναρκωτικά" />
-                                    <CheckBox mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Αλκόολ" />
+                                    <CheckBox mnemonicParsing="false" text="Κάπνισμα" />
+                                    <CheckBox mnemonicParsing="false" text="Ναρκωτικά" />
+                                    <CheckBox mnemonicParsing="false" text="Αλκόολ" />
                                  </children>
                               </HBox>
                               <HBox layoutX="10.0" layoutY="330.0" maxHeight="25.0" maxWidth="1026.0" minHeight="25.0" minWidth="700.0" prefHeight="25.0" prefWidth="1026.0" spacing="15.0">
@@ -827,12 +827,12 @@
                                           <Font name="Candara" size="18.0" />
                                        </font>
                                     </Label>
-                                    <RadioButton fx:id="yes121111111" mnemonicParsing="false" prefHeight="24.0" prefWidth="85.0" style="-fx-text-fill: black;" text="Ναι">
+                                    <RadioButton fx:id="yes121111111" mnemonicParsing="false" style="-fx-text-fill: black;" text="Ναι">
                                        <toggleGroup>
                                           <ToggleGroup fx:id="medicationUse" />
                                        </toggleGroup></RadioButton>
-                                    <RadioButton fx:id="yes1111111111" mnemonicParsing="false" prefHeight="24.0" prefWidth="85.0" style="-fx-text-fill: black;" text="Όχι" toggleGroup="$medicationUse" />
-                                    <Button fx:id="comment_medication_use_current" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="28.0" prefWidth="85.0" stylesheets="@Comment.css" text="Σχόλια">
+                                    <RadioButton fx:id="yes1111111111" mnemonicParsing="false" style="-fx-text-fill: black;" text="Όχι" toggleGroup="$medicationUse" />
+                                    <Button fx:id="comment_medication_use_current" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" stylesheets="@Comment.css" text="Σχόλια">
                                        <graphic>
                                           <ImageView fitHeight="20.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -856,13 +856,13 @@
                                           <Font name="Candara" size="18.0" />
                                        </font>
                                     </Label>
-                                    <RadioButton fx:id="yes1211111111" mnemonicParsing="false" prefHeight="24.0" prefWidth="85.0" style="-fx-text-fill: black;" text="Ναι">
+                                    <RadioButton fx:id="yes1211111111" mnemonicParsing="false" style="-fx-text-fill: black;" text="Ναι">
                                        <toggleGroup>
                                           <ToggleGroup fx:id="traumaticEvent" />
                                        </toggleGroup>
                                     </RadioButton>
-                                    <RadioButton fx:id="yes11111111111" mnemonicParsing="false" prefHeight="24.0" prefWidth="85.0" style="-fx-text-fill: black;" text="Όχι" toggleGroup="$traumaticEvent" />
-                                    <Button fx:id="comment_traumatic_event" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="28.0" prefWidth="85.0" stylesheets="@Comment.css" text="Σχόλια">
+                                    <RadioButton fx:id="yes11111111111" mnemonicParsing="false" style="-fx-text-fill: black;" text="Όχι" toggleGroup="$traumaticEvent" />
+                                    <Button fx:id="comment_traumatic_event" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" stylesheets="@Comment.css" text="Σχόλια">
                                        <graphic>
                                           <ImageView fitHeight="20.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -886,12 +886,12 @@
                                           <Font name="Candara" size="18.0" />
                                        </font>
                                     </Label>
-                                    <RadioButton fx:id="yes12111111111" mnemonicParsing="false" prefHeight="24.0" prefWidth="85.0" style="-fx-text-fill: black;" text="Ναι">
+                                    <RadioButton fx:id="yes12111111111" mnemonicParsing="false" style="-fx-text-fill: black;" text="Ναι">
                                        <toggleGroup>
                                           <ToggleGroup fx:id="diagnosticTest" />
                                        </toggleGroup></RadioButton>
-                                    <RadioButton fx:id="yes111111111111" mnemonicParsing="false" prefHeight="24.0" prefWidth="85.0" style="-fx-text-fill: black;" text="Όχι" toggleGroup="$diagnosticTest" />
-                                    <Button fx:id="comment_diagnostics_test_current" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="28.0" prefWidth="85.0" stylesheets="@Comment.css" text="Σχόλια">
+                                    <RadioButton fx:id="yes111111111111" mnemonicParsing="false" style="-fx-text-fill: black;" text="Όχι" toggleGroup="$diagnosticTest" />
+                                    <Button fx:id="comment_diagnostics_test_current" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" stylesheets="@Comment.css" text="Σχόλια">
                                        <graphic>
                                           <ImageView fitHeight="20.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -915,7 +915,7 @@
                                           <Font name="Candara" size="18.0" />
                                        </font>
                                     </Label>
-                                    <Button fx:id="comment_personality" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="28.0" prefWidth="85.0" stylesheets="@Comment.css" text="Σχόλια">
+                                    <Button fx:id="comment_personality" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" stylesheets="@Comment.css" text="Σχόλια">
                                        <graphic>
                                           <ImageView fitHeight="20.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -939,7 +939,7 @@
                                           <Font name="Candara" size="18.0" />
                                        </font>
                                     </Label>
-                                    <Button fx:id="comment_current_hospitalization" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="28.0" prefWidth="85.0" stylesheets="@Comment.css" text="Σχόλια">
+                                    <Button fx:id="comment_current_hospitalization" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" stylesheets="@Comment.css" text="Σχόλια">
                                        <graphic>
                                           <ImageView fitHeight="20.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -963,7 +963,7 @@
                                           <Font name="Candara" size="18.0" />
                                        </font>
                                     </Label>
-                                    <Button fx:id="comment_hospitalization1211" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="28.0" prefWidth="85.0" stylesheets="@Comment.css" text="Σχόλια">
+                                    <Button fx:id="comment_hospitalization1211" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#registerTabAction" stylesheets="@Comment.css" text="Σχόλια">
                                        <graphic>
                                           <ImageView fitHeight="20.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -987,12 +987,12 @@
                         </VBox>
                         <HBox alignment="CENTER" prefHeight="43.0" prefWidth="1004.0" spacing="70.0" GridPane.rowIndex="1">
                            <children>
-                              <Button fx:id="cancel4" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="40.0" prefWidth="100.0" stylesheets="@CancelButton.css" text="Άκυρο">
+                              <Button fx:id="cancel4" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="40.0" stylesheets="@CancelButton.css" text="Άκυρο">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="save_all" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="40.0" prefWidth="100.0" stylesheets="@SaveButton.css" text="Αποθήκευση">
+                              <Button fx:id="save_all" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="40.0" stylesheets="@SaveButton.css" text="Αποθήκευση">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>

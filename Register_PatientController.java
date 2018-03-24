@@ -23,6 +23,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import static javafxapplication4.MenuController.id;
 
@@ -300,12 +301,13 @@ public class Register_PatientController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
             scene = new Scene(root);    
             
-            stage.setX(0);
-            stage.setY(0);
+            //stage.setX(0);
+            //stage.setY(0);
             stage.setMinWidth(800);
             stage.setMinHeight(600);
-            stage.setWidth(1024);
-            stage.setHeight(768);
+            //stage.setWidth(1024);
+            //stage.setHeight(768);
+            stage.setMaximized(true);
             stage.setScene(scene);
             stage.show();
         }
@@ -322,12 +324,13 @@ public class Register_PatientController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
             scene = new Scene(root);    
             
-            stage.setX(0);
-            stage.setY(0);
+            //stage.setX(0);
+            //stage.setY(0);
             stage.setMinWidth(800);
             stage.setMinHeight(600);
-            stage.setWidth(1024);
-            stage.setHeight(768);
+            //stage.setWidth(1024);
+            //stage.setHeight(768);
+            stage.setMaximized(true);
             stage.setScene(scene);
             stage.show();
         }
@@ -344,12 +347,13 @@ public class Register_PatientController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
             scene = new Scene(root);    
             
-            stage.setX(0);
-            stage.setY(0);
+            //stage.setX(0);
+            //stage.setY(0);
             stage.setMinWidth(800);
             stage.setMinHeight(600);
-            stage.setWidth(1024);
-            stage.setHeight(768);
+            //stage.setWidth(1024);
+            //stage.setHeight(768);
+            stage.setMaximized(true);
             stage.setScene(scene);
             stage.show();
         }
@@ -366,12 +370,13 @@ public class Register_PatientController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
             scene = new Scene(root);    
             
-            stage.setX(0);
-            stage.setY(0);
+            //stage.setX(0);
+            //stage.setY(0);
             stage.setMinWidth(800);
             stage.setMinHeight(600);
-            stage.setWidth(1024);
-            stage.setHeight(768);
+            //stage.setWidth(1024);
+            //stage.setHeight(768);
+            stage.setMaximized(true);
             stage.setScene(scene);
             stage.show();
         }
@@ -502,6 +507,7 @@ public class Register_PatientController implements Initializable {
                 }else{
                     ps.setString(10,"Όχι");
                 }
+                ps.setInt(11,id);
                 ps.executeUpdate();
                 ps.close();
             }catch(SQLException exc){
@@ -521,6 +527,7 @@ public class Register_PatientController implements Initializable {
             stage2.setMaxWidth(350);
             stage2.setMaxHeight(250);
             comment_counter = 7;
+            stage2.initModality(Modality.APPLICATION_MODAL);
             stage2.show();
         }
         else if ( e.getSource() == comment_education ){
@@ -532,6 +539,7 @@ public class Register_PatientController implements Initializable {
             stage2.setMaxWidth(350);
             stage2.setMaxHeight(250);
             comment_counter = 9;
+            stage2.initModality(Modality.APPLICATION_MODAL);
             stage2.show();
         }
         else if ( e.getSource() == comment_political ){
@@ -543,6 +551,7 @@ public class Register_PatientController implements Initializable {
             stage2.setMaxWidth(350);
             stage2.setMaxHeight(250);
             comment_counter = 17;
+            stage2.initModality(Modality.APPLICATION_MODAL);
             stage2.show();
         }
         else if ( e.getSource() == bmi ){
@@ -565,6 +574,7 @@ public class Register_PatientController implements Initializable {
             stage2.setMaxWidth(350);
             stage2.setMaxHeight(250);
             comment_counter = 18;
+            stage2.initModality(Modality.APPLICATION_MODAL);
             stage2.show();
         }
         else if ( e.getSource() == comment_sexual_life ){
@@ -576,6 +586,7 @@ public class Register_PatientController implements Initializable {
             stage2.setMaxWidth(350);
             stage2.setMaxHeight(250);
             comment_counter = 20;
+            stage2.initModality(Modality.APPLICATION_MODAL);
             stage2.show();
         }
         else if ( e.getSource() == comment_sexual_orientation ){
@@ -587,6 +598,7 @@ public class Register_PatientController implements Initializable {
             stage2.setMaxWidth(350);
             stage2.setMaxHeight(250);
             comment_counter = 21;
+            stage2.initModality(Modality.APPLICATION_MODAL);
             stage2.show();
         }
         else if ( e.getSource() == comment_personal_interest ){
@@ -598,6 +610,7 @@ public class Register_PatientController implements Initializable {
             stage2.setMaxWidth(350);
             stage2.setMaxHeight(250);
             comment_counter = 22;
+            stage2.initModality(Modality.APPLICATION_MODAL);
             stage2.show();
         }
         else if ( e.getSource() == comment_birth_problem ){
@@ -609,6 +622,7 @@ public class Register_PatientController implements Initializable {
             stage2.setMaxWidth(350);
             stage2.setMaxHeight(250);
             comment_counter = 25;
+            stage2.initModality(Modality.APPLICATION_MODAL);
             stage2.show();
         }
         else if ( e.getSource() == comment_physical_illness ){
@@ -620,6 +634,7 @@ public class Register_PatientController implements Initializable {
             stage2.setMaxWidth(350);
             stage2.setMaxHeight(250);
             comment_counter = 28;
+            stage2.initModality(Modality.APPLICATION_MODAL);
             stage2.show();
         }
         else if ( e.getSource() == comment_history ){
@@ -631,6 +646,7 @@ public class Register_PatientController implements Initializable {
             stage2.setMaxWidth(350);
             stage2.setMaxHeight(250);
             comment_counter = 30;
+            stage2.initModality(Modality.APPLICATION_MODAL);
             stage2.show();
         }
         else if ( e.getSource() == comment_medication_use ){
@@ -642,6 +658,7 @@ public class Register_PatientController implements Initializable {
             stage2.setMaxWidth(350);
             stage2.setMaxHeight(250);
             comment_counter = 33;
+            stage2.initModality(Modality.APPLICATION_MODAL);
             stage2.show();
         }
         else if ( e.getSource() == comment_diagnostics_test ){
@@ -653,6 +670,7 @@ public class Register_PatientController implements Initializable {
             stage2.setMaxWidth(350);
             stage2.setMaxHeight(250);
             comment_counter = 35;
+            stage2.initModality(Modality.APPLICATION_MODAL);
             stage2.show();
         }
         else if ( e.getSource() == comment_diagnosis ){
@@ -664,6 +682,7 @@ public class Register_PatientController implements Initializable {
             stage2.setMaxWidth(350);
             stage2.setMaxHeight(250);
             comment_counter = 37;
+            stage2.initModality(Modality.APPLICATION_MODAL);
             stage2.show();
         }
         else if ( e.getSource() == comment_hospitalization ){
@@ -675,6 +694,7 @@ public class Register_PatientController implements Initializable {
             stage2.setMaxWidth(350);
             stage2.setMaxHeight(250);
             comment_counter = 39;
+            stage2.initModality(Modality.APPLICATION_MODAL);
             stage2.show();
         }
         else if ( e.getSource() == comment_request ){
@@ -686,6 +706,7 @@ public class Register_PatientController implements Initializable {
             stage2.setMaxWidth(350);
             stage2.setMaxHeight(250);
             comment_counter = 40;
+            stage2.initModality(Modality.APPLICATION_MODAL);
             stage2.show();
         }
         else if ( e.getSource() == comment_physical_illness_current ){
@@ -697,6 +718,7 @@ public class Register_PatientController implements Initializable {
             stage2.setMaxWidth(350);
             stage2.setMaxHeight(250);
             comment_counter = 46;
+            stage2.initModality(Modality.APPLICATION_MODAL);
             stage2.show();
         }
         else if ( e.getSource() == comment_medication_use_current ){
@@ -708,6 +730,7 @@ public class Register_PatientController implements Initializable {
             stage2.setMaxWidth(350);
             stage2.setMaxHeight(250);
             comment_counter = 49;
+            stage2.initModality(Modality.APPLICATION_MODAL);
             stage2.show();
         }
         else if ( e.getSource() == comment_traumatic_event ){
@@ -719,6 +742,7 @@ public class Register_PatientController implements Initializable {
             stage2.setMaxWidth(350);
             stage2.setMaxHeight(250);
             comment_counter = 51;
+            stage2.initModality(Modality.APPLICATION_MODAL);
             stage2.show();
         }
         else if ( e.getSource() == comment_diagnostics_test_current ){
@@ -730,6 +754,7 @@ public class Register_PatientController implements Initializable {
             stage2.setMaxWidth(350);
             stage2.setMaxHeight(250);
             comment_counter = 53;
+            stage2.initModality(Modality.APPLICATION_MODAL);
             stage2.show();
         }
          else if ( e.getSource() == comment_personality ){
@@ -741,6 +766,7 @@ public class Register_PatientController implements Initializable {
             stage2.setMaxWidth(350);
             stage2.setMaxHeight(250);
             comment_counter = 54;
+            stage2.initModality(Modality.APPLICATION_MODAL);
             stage2.show();
         }
         else if ( e.getSource() == comment_current_hospitalization ){
@@ -752,6 +778,7 @@ public class Register_PatientController implements Initializable {
             stage2.setMaxWidth(350);
             stage2.setMaxHeight(250);
             comment_counter = 55;
+            stage2.initModality(Modality.APPLICATION_MODAL);
             stage2.show();
         }
    

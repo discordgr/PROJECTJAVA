@@ -49,8 +49,10 @@ public class Diagnosis_MenuController implements Initializable {
             scene = new Scene(root);    
             
             stage.setScene(scene);
+            stage.setMaximized(true);
             //stage.setMaxWidth(1024);
             //stage.setMaxHeight(768);
+            stage.setMaximized(true);
             stage.show();
         }
         else if(e.getSource() == new_diagnosis_on_existing_patient)
@@ -59,6 +61,7 @@ public class Diagnosis_MenuController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("Patient_Data.fxml"));
             scene = new Scene(root);
             stage.setScene(scene);
+            stage.setMaximized(true);
             stage.show();
         }
         else if ( e.getSource() == back )
@@ -67,13 +70,14 @@ public class Diagnosis_MenuController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
             scene = new Scene(root);    
             
-            stage.setX(0);
-            stage.setY(0);
+            //stage.setX(0);
+            //stage.setY(0);
             stage.setMinWidth(800);
             stage.setMinHeight(600);
-            stage.setWidth(1024);
-            stage.setHeight(768);
+            //stage.setWidth(1024);
+            //stage.setHeight(768);
             stage.setScene(scene);
+            stage.setMaximized(true);
             stage.show();
         }
     }

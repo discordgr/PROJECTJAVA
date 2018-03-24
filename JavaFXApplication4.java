@@ -21,6 +21,8 @@ import java.io.FileInputStream;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import javafx.geometry.Rectangle2D;
+import javafx.stage.Screen;
 
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -36,15 +38,31 @@ public class JavaFXApplication4 extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
-        
         Scene scene = new Scene(root);
-        stage.setX(0);
-        stage.setY(0);
+        //stage.setX(0);
+        //stage.setY(0);
         stage.setMinWidth(800);
         stage.setMinHeight(600);
-        stage.setWidth(1024);
-        stage.setHeight(768);
+        //stage.setWidth(1024);
+        //stage.setHeight(768);
+        //stage.setMaximized(true);
+        Screen screen = Screen.getPrimary();
+        Rectangle2D bounds = screen.getVisualBounds();
+
+        stage.setX(bounds.getMinX());
+        stage.setY(bounds.getMinY());
+        stage.setWidth(bounds.getWidth());
+        stage.setHeight(bounds.getHeight());
+        
+        stage.setMaximized(true);
         stage.setScene(scene);
+        
+        //stage.setFullScreen(true);
+        //if ( stage.fullScreenProperty().get() == false ){
+         //   stage.setMaximized(true);
+        //}
+        
+
         stage.show();
     }
 

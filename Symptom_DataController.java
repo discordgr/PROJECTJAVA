@@ -5,17 +5,22 @@
  */
 package javafxapplication4;
 
+
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import java.util.ResourceBundle;
+import java.util.function.Predicate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -23,6 +28,8 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
@@ -33,12 +40,15 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+
 
 /**
  * FXML Controller class
@@ -149,13 +159,22 @@ public class Symptom_DataController implements Initializable {
     @FXML
     private Button remove;
     
+    @FXML
+    private TextField searchField;
+    
     public static int disorder_id;
+    
+    private static int counter = 0;
     
     public LoginModel loginModelSymptomsTable = new LoginModel();
     
     public static ObservableList<Symptom> data = FXCollections.observableArrayList();
     
     public static ObservableList<Symptom> subSymptoms = FXCollections.observableArrayList();
+    
+    ObservableList<Symptom> t1 = loginModelSymptomsTable.selectSymptomTrofis();
+    
+    FilteredList<Symptom> filteredData = new FilteredList<Symptom>(t1, e -> true);
     
     
     @FXML
@@ -169,12 +188,13 @@ public class Symptom_DataController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
             scene = new Scene(root);    
             
-            stage.setX(0);
-            stage.setY(0);
+            //stage.setX(0);
+            //stage.setY(0);
             stage.setMinWidth(800);
             stage.setMinHeight(600);
-            stage.setWidth(1024);
-            stage.setHeight(768);
+            //stage.setWidth(1024);
+            //stage.setHeight(768);
+            stage.setMaximized(true);
             stage.setScene(scene);
             stage.show();
         }
@@ -238,12 +258,13 @@ public class Symptom_DataController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("Show_Possible_Diagnose.fxml"));
             scene = new Scene(root);    
             
-            stage.setX(0);
-            stage.setY(0);
+            //stage.setX(0);
+            //stage.setY(0);
             stage.setMinWidth(800);
             stage.setMinHeight(600);
-            stage.setWidth(1024);
-            stage.setHeight(768);
+            //stage.setWidth(1024);
+            //stage.setHeight(768);
+            stage.setMaximized(true);
             stage.setScene(scene);
             stage.show();
         }
@@ -267,9 +288,48 @@ public class Symptom_DataController implements Initializable {
 
         }
     }
-
     
     
+    @FXML
+    private void filterSymptom(KeyEvent k) throws Exception{
+        
+        //System.out.println(searchField.getText());
+        
+        searchField.textProperty().addListener((observableValue, newValue, oldValue) -> {
+           filteredData.setPredicate((Predicate<? super Symptom>) s -> {
+               if(searchField.getText() == null || searchField.getText().isEmpty()){
+                   searchField.setStyle("-fx-background-color: white");
+                   return true;
+               }
+               
+               //String lowerCaseFilter = searchField.getText();
+               //lowerCaseFilter = Normalizer.normalize(lowerCaseFilter, Normalizer.Form.NFD).replaceAll("\\p{M}", "").toLowerCase(Locale.ITALY);
+               
+               String lowerCaseFilter = searchField.getText();
+               lowerCaseFilter = Normalizer.normalize(lowerCaseFilter, Normalizer.Form.NFD);
+               lowerCaseFilter = lowerCaseFilter.replaceAll("\\p{M}", "").toLowerCase();
+               //lowerCaseFilter.replace("βραδυ","νυχτερινη");
+               if ( searchField.getText().length()>=0){
+                   String transform = s.getName();
+                   transform = Normalizer.normalize(transform, Normalizer.Form.NFD);
+                   transform = transform.replaceAll("\\p{M}", "");        
+                    if (transform.toLowerCase().contains(lowerCaseFilter)){
+                        searchField.setStyle("-fx-background-color: green");
+                        return true;
+                    }
+               }    
+                    if ( filteredData.isEmpty()){
+                        searchField.setStyle("-fx-background-color: red");
+                    }
+                    
+                    return false;
+           });
+        });
+        
+        SortedList<Symptom> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(symptomsTableTrofis.comparatorProperty());
+        symptomsTableTrofis.setItems(sortedData);
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -319,8 +379,14 @@ public class Symptom_DataController implements Initializable {
             button.setOnAction(e -> {
                 
                 Symptom symptom = getItem();
-                this.tableRowProperty().get().setStyle("-fx-background-color: #15ED15;");
+                //this.tableRowProperty().get().setStyle("-fx-background-color: #15ED15;");
                 
+                String test = symptom.getName();
+                test = Normalizer.normalize(test, Normalizer.Form.NFD);
+                //test = test.replaceAll("\\p{M}", "");
+                
+
+                System.out.println(test.toLowerCase());
                 
                 boolean flag = false;
                 for (Symptom s1 : data){
@@ -333,6 +399,10 @@ public class Symptom_DataController implements Initializable {
                     data.add(symptom);
                 }
                 
+                
+                symptomsTableTrofis.getSelectionModel().select(this.getIndex());
+                //symptomsTableTrofis.getRowFactory();
+                System.out.println(symptomsTableTrofis.getSelectionModel().isSelected(this.getIndex()));
                 
                 System.out.println(symptom.getSymptomId());
             });
@@ -662,8 +732,8 @@ public class Symptom_DataController implements Initializable {
         }
     });
     
-    
-    symptomsTableTrofis.setItems(loginModelSymptomsTable.selectSymptomTrofis());
+
+    symptomsTableTrofis.setItems(t1);
     symptomsTableDiathesis.setItems(loginModelSymptomsTable.selectSymptomDiathesis());
     symptomsTableSkepsis.setItems(loginModelSymptomsTable.selectSymptomSkepsis());
     symptomsTableFovou.setItems(loginModelSymptomsTable.selectSymptomSkepsis());
@@ -673,6 +743,7 @@ public class Symptom_DataController implements Initializable {
     symptomsTableDrastiriotitas.setItems(loginModelSymptomsTable.selectSymptomDrastiriotitas());
     symptomsTableYpnou.setItems(loginModelSymptomsTable.selectSymptomYpnou());
     addedSymptomsTable.setItems(data);
+
     }    
    
     

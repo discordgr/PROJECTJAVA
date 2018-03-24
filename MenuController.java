@@ -60,7 +60,7 @@ public class MenuController implements Initializable
             stage = (Stage) new_patient.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("Register_Patient.fxml"));
             scene = new Scene(root);    
-            
+            System.out.println(scene.getRoot() + "kasdlashjldkjashldhjasldhslajdhlakjdlasdas");
             stage.setScene(scene);
             try{
                 PreparedStatement ps = con_create.prepareStatement("INSERT INTO trashes(FIRSTNAME,LASTNAME,AGE,GENDER,FAMILY_STATUS,KIDS,KIDS_COMMENT,EDUCATION,EDUCATION_COMMENT,EMPLOYMENT,CLASS,ADDRESS,TELEPHONE,EMAIL,NATIONALITY,RELIGION,POLITICAL_VIEWS,MENSTRUATION,BMI,SEX_LIFE,SEXUAL_ORIENTATION,PERSONAL_INTERESTS,BIRTH_WAY,BIRTH_DEFECTS,BIRTH_DEFECTS_COMMENTS,PAST_TRAUMATIC_EVENT,PAST_PHYSICAL_ILLNESS,PAST_PHYSICAL_ILLNESS_COMMENTS,PAST_HISTORY_ILLNESS,PAST_HISTORY_ILLNESS_COMMENTS,PAST_DRUG_USE,PAST_MEDICATION_USE,PAST_MEDICATION_USE_COMMENTS,PAST_DIAGNOSTICS_TEST,PAST_DIAGNOSTICS_TEST_COMMENTS,PAST_DIAGNOSIS,PAST_DIAGNOSIS_COMMENTS,PAST_HOSPITALIZATION,PAST_HOSPITALIZATION_COMMENTS,REQUEST,APPEARANCE,MOVEMENT_ACTIVITY,EYE_CONTACT,SPEECH,PHYSICAL_ILLNESS,PHYSICAL_ILLNESS_COMMENTS,DRUG_USE,MEDICATION_USE,MEDICATION_USE_COMMENTS,TRAUMATIC_EVENT,TRAUMATIC_EVENT_COMMENTS,DIAGNOSTICS_TEST,DIAGNOSTICS_TEST_COMMENTS,PERSONALITY,HOSPITALIZATION,ID)" + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"); 
@@ -72,6 +72,8 @@ public class MenuController implements Initializable
             }
             //stage.setMaxWidth(1024);
             //stage.setMaxHeight(768);
+            
+            stage.setMaximized(true);
             stage.show();
         }
         else if ( e.getSource() == patient_archive ){
@@ -79,6 +81,7 @@ public class MenuController implements Initializable
             root = FXMLLoader.load(getClass().getResource("Patient_Data.fxml"));
             scene = new Scene(root);
             
+            stage.setMaximized(true);
             stage.setScene(scene);
             stage.show();
         }
@@ -87,6 +90,7 @@ public class MenuController implements Initializable
             root = FXMLLoader.load(getClass().getResource("Diagnosis_Menu.fxml"));
             scene = new Scene(root);
             
+            stage.setMaximized(true);
             stage.setScene(scene);
             stage.show();
         }
