@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="592.0" prefWidth="691.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication4.Duration_Frequency_ExtrasController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="268.0" minHeight="10.0" prefHeight="112.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="443.0" minHeight="10.0" prefHeight="104.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="443.0" minHeight="10.0" prefHeight="104.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="368.0" minHeight="10.0" prefHeight="179.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="368.0" minHeight="10.0" prefHeight="205.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Label prefHeight="21.0" prefWidth="80.0" text="Symptom 1">
+               <VBox.margin>
+                  <Insets left="300.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="Duration">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+            <ChoiceBox fx:id="durationChoice" prefWidth="150.0" />
+         </children>
+      </VBox>
+      <StackPane prefHeight="230.0" prefWidth="691.0" GridPane.rowIndex="1">
+         <children>
+            <Slider fx:id="daySlider" blockIncrement="1.0" majorTickUnit="1.0" max="7.0" min="1.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" />
+            <Slider fx:id="weekSlider" blockIncrement="1.0" majorTickUnit="1.0" max="4.0" min="1.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" visible="false" />
+            <Slider fx:id="monthSlider" blockIncrement="1.0" majorTickUnit="1.0" max="12.0" min="1.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" visible="false" />
+            <Slider fx:id="yearSlider" blockIncrement="1.0" majorTickUnit="1.0" max="5.0" min="1.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" visible="false" />
+         </children>
+      </StackPane>
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
+         <children>
+            <Button fx:id="unknownDur" mnemonicParsing="false" text="Unknown">
+               <VBox.margin>
+                  <Insets left="300.0" top="40.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
+         <children>
+            <Label text="Frequency">
+               <HBox.margin>
+                  <Insets top="40.0" />
+               </HBox.margin>
+            </Label>
+            <Slider blockIncrement="1.0" majorTickUnit="1.0" max="10.0" min="1.0" minorTickCount="1" prefHeight="45.0" prefWidth="365.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0">
+               <HBox.margin>
+                  <Insets top="100.0" />
+               </HBox.margin>
+            </Slider>
+            <Label text="per">
+               <HBox.margin>
+                  <Insets top="100.0" />
+               </HBox.margin>
+            </Label>
+            <ChoiceBox fx:id="frequencyChoice" prefWidth="150.0">
+               <HBox.margin>
+                  <Insets left="5.0" top="100.0" />
+               </HBox.margin>
+            </ChoiceBox>
+         </children>
+      </HBox>
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="4">
+         <children>
+            <Button fx:id="unknownFreq" mnemonicParsing="false" text="Unknown">
+               <VBox.margin>
+                  <Insets left="300.0" top="40.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</GridPane>
