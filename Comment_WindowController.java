@@ -290,6 +290,287 @@ public class Comment_WindowController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         lm = new LoginModel();
-    }    
+        con = lm.getConnection();
+        String comment = null;
+        if ( comment_counter == 7){
+            try{
+                   PreparedStatement ps = con.prepareStatement("SELECT KIDS_COMMENT FROM trashes WHERE ID = ?"); 
+                   ps.setInt(1, id);
+                   ResultSet rs = ps.executeQuery();
+                   System.out.println("Select Comment Successfull");
+                   while ( rs.next() )
+                       comment = rs.getString("KIDS_COMMENT");
+                   
+                } catch(SQLException ex) {
+                    ex.printStackTrace();
+                }
+        }
+        else if ( comment_counter == 9 ){
+            try{
+                   PreparedStatement ps = con.prepareStatement("SELECT EDUCATION_COMMENT FROM trashes WHERE ID = ?"); 
+                   ps.setInt(1, id);
+                   ResultSet rs = ps.executeQuery();
+                   System.out.println("Select Comment Successfull");
+                   while ( rs.next() )
+                       comment = rs.getString("KIDS_COMMENT");
+                   
+                } catch(SQLException ex) {
+                    ex.printStackTrace();
+                }
+        }     
+        else if ( comment_counter == 17 ){
+            try{
+                   PreparedStatement ps = con.prepareStatement("SELECT POLITICAL_VIEWS FROM trashes WHERE ID = ?"); 
+                   ps.setInt(1, id);
+                   ResultSet rs = ps.executeQuery();
+                   System.out.println("Select Comment Successfull");
+                   while ( rs.next() )
+                       comment = rs.getString("KIDS_COMMENT");
+                   
+                } catch(SQLException ex) {
+                    ex.printStackTrace();
+                }
+        }
+        else if ( comment_counter == 18 ){
+            try{
+                   PreparedStatement ps = con.prepareStatement("SELECT MENSTRUATION FROM trashes WHERE ID = ?"); 
+                   ps.setInt(1, id);
+                   ResultSet rs = ps.executeQuery();
+                   System.out.println("Select Comment Successfull");
+                   while ( rs.next() )
+                       comment = rs.getString("KIDS_COMMENT");
+                   
+                } catch(SQLException ex) {
+                    ex.printStackTrace();
+                }
+        }
+        else if ( comment_counter == 20 ){
+            try{
+                   PreparedStatement ps = con.prepareStatement("SELECT SEX_LIFE FROM trashes WHERE ID = ?"); 
+                   ps.setInt(1, id);
+                   ResultSet rs = ps.executeQuery();
+                   System.out.println("Select Comment Successfull");
+                   while ( rs.next() )
+                       comment = rs.getString("KIDS_COMMENT");
+                   
+                } catch(SQLException ex) {
+                    ex.printStackTrace();
+                }
+        }
+        else if ( comment_counter == 21 ){
+            try{
+                   PreparedStatement ps = con.prepareStatement("SELECT SEXUAL_ORIENTATION FROM trashes WHERE ID = ?"); 
+                   ps.setInt(1, id);
+                   ResultSet rs = ps.executeQuery();
+                   System.out.println("Select Comment Successfull");
+                   while ( rs.next() )
+                       comment = rs.getString("KIDS_COMMENT");
+                   
+                } catch(SQLException ex) {
+                    ex.printStackTrace();
+                }
+        }
+        else if ( comment_counter == 22 ){
+            try{
+                   PreparedStatement ps = con.prepareStatement("SELECT PERSONAL_INTERESTS FROM trashes WHERE ID = ?"); 
+                   ps.setInt(1, id);
+                   ResultSet rs = ps.executeQuery();
+                   System.out.println("Select Comment Successfull");
+                   while ( rs.next() )
+                       comment = rs.getString("KIDS_COMMENT");
+                   
+                } catch(SQLException ex) {
+                    ex.printStackTrace();
+                }
+        }
+        else if ( comment_counter == 25 ){
+            try{
+                   PreparedStatement ps = con.prepareStatement("SELECT BIRTH_DEFECTS_COMMENTS FROM trashes WHERE ID = ?"); 
+                   ps.setInt(1, id);
+                   ResultSet rs = ps.executeQuery();
+                   System.out.println("Select Comment Successfull");
+                   while ( rs.next() )
+                       comment = rs.getString("KIDS_COMMENT");
+                   
+                } catch(SQLException ex) {
+                    ex.printStackTrace();
+                }
+        }
+        else if ( comment_counter == 28 ){
+            try{
+                   PreparedStatement ps = con.prepareStatement("SELECT PAST_PHYSICAL_ILLNESS FROM trashes WHERE ID = ?"); 
+                   ps.setInt(1, id);
+                   ResultSet rs = ps.executeQuery();
+                   System.out.println("Select Comment Successfull");
+                   while ( rs.next() )
+                       comment = rs.getString("KIDS_COMMENT");
+                   
+                } catch(SQLException ex) {
+                    ex.printStackTrace();
+                }
+        }
+        else if ( comment_counter == 30 ){
+            try{
+                   PreparedStatement ps = con.prepareStatement("SELECT PAST_HISTORY_ILLNESS_COMMENTS FROM trashes WHERE ID = ?"); 
+                   ps.setInt(1, id);
+                   ResultSet rs = ps.executeQuery();
+                   System.out.println("Select Comment Successfull");
+                   while ( rs.next() )
+                       comment = rs.getString("KIDS_COMMENT");
+                   
+                } catch(SQLException ex) {
+                    ex.printStackTrace();
+                }
+        }
+        else if ( comment_counter == 33 ){
+            try{
+                   PreparedStatement ps = con.prepareStatement("SELECT PAST_MEDICATION_USE_COMMENTS FROM trashes WHERE ID = ?"); 
+                   ps.setInt(1, id);
+                   ResultSet rs = ps.executeQuery();
+                   System.out.println("Select Comment Successfull");
+                   while ( rs.next() )
+                       comment = rs.getString("KIDS_COMMENT");
+                   
+                } catch(SQLException ex) {
+                    ex.printStackTrace();
+                }
+        }
+        else if ( comment_counter == 35 ){
+            try{
+                   PreparedStatement ps = con.prepareStatement("SELECT PAST_DIAGNOSTICS_TEST_COMMENTS FROM trashes WHERE ID = ?"); 
+                   ps.setInt(1, id);
+                   ResultSet rs = ps.executeQuery();
+                   System.out.println("Select Comment Successfull");
+                   while ( rs.next() )
+                       comment = rs.getString("KIDS_COMMENT");
+                   
+                } catch(SQLException ex) {
+                    ex.printStackTrace();
+                }
+        }
+        else if ( comment_counter == 37 ){
+            try{
+                   PreparedStatement ps = con.prepareStatement("SELECT PAST_DIAGNOSIS_COMMENTS FROM trashes WHERE ID = ?"); 
+                   ps.setInt(1, id);
+                   ResultSet rs = ps.executeQuery();
+                   System.out.println("Select Comment Successfull");
+                   while ( rs.next() )
+                       comment = rs.getString("KIDS_COMMENT");
+                   
+                } catch(SQLException ex) {
+                    ex.printStackTrace();
+                }
+        }
+        else if ( comment_counter == 39 ){
+            try{
+                   PreparedStatement ps = con.prepareStatement("SELECT PAST_HOSPITALIZATION_COMMENTS FROM trashes WHERE ID = ?"); 
+                   ps.setInt(1, id);
+                   ResultSet rs = ps.executeQuery();
+                   System.out.println("Select Comment Successfull");
+                   while ( rs.next() )
+                       comment = rs.getString("KIDS_COMMENT");
+                   
+                } catch(SQLException ex) {
+                    ex.printStackTrace();
+                }
+        }
+        else if ( comment_counter == 40 ){
+            try{
+                   PreparedStatement ps = con.prepareStatement("SELECT REQUEST FROM trashes WHERE ID = ?"); 
+                   ps.setInt(1, id);
+                   ResultSet rs = ps.executeQuery();
+                   System.out.println("Select Comment Successfull");
+                   while ( rs.next() )
+                       comment = rs.getString("KIDS_COMMENT");
+                   
+                } catch(SQLException ex) {
+                    ex.printStackTrace();
+                }
+        }
+        else if ( comment_counter == 46 ){
+            try{
+                   PreparedStatement ps = con.prepareStatement("SELECT PHYSICAL_ILLNESS_COMMENTS FROM trashes WHERE ID = ?"); 
+                   ps.setInt(1, id);
+                   ResultSet rs = ps.executeQuery();
+                   System.out.println("Select Comment Successfull");
+                   while ( rs.next() )
+                       comment = rs.getString("KIDS_COMMENT");
+                   
+                } catch(SQLException ex) {
+                    ex.printStackTrace();
+                }
+        }
+        else if ( comment_counter == 49 ){
+            try{
+                   PreparedStatement ps = con.prepareStatement("SELECT MEDICATION_USE_COMMENTS FROM trashes WHERE ID = ?"); 
+                   ps.setInt(1, id);
+                   ResultSet rs = ps.executeQuery();
+                   System.out.println("Select Comment Successfull");
+                   while ( rs.next() )
+                       comment = rs.getString("KIDS_COMMENT");
+                   
+                } catch(SQLException ex) {
+                    ex.printStackTrace();
+                }
+        }
+        else if ( comment_counter == 51 ){
+            try{
+                   PreparedStatement ps = con.prepareStatement("SELECT TRAUMATIC_EVENT_COMMENTS FROM trashes WHERE ID = ?"); 
+                   ps.setInt(1, id);
+                   ResultSet rs = ps.executeQuery();
+                   System.out.println("Select Comment Successfull");
+                   while ( rs.next() )
+                       comment = rs.getString("KIDS_COMMENT");
+                   
+                } catch(SQLException ex) {
+                    ex.printStackTrace();
+                }
+        }
+        else if ( comment_counter == 53 ){
+            try{
+                   PreparedStatement ps = con.prepareStatement("SELECT DIAGNOSTICS_TEST_COMMENTS FROM trashes WHERE ID = ?"); 
+                   ps.setInt(1, id);
+                   ResultSet rs = ps.executeQuery();
+                   System.out.println("Select Comment Successfull");
+                   while ( rs.next() )
+                       comment = rs.getString("KIDS_COMMENT");
+                   
+                } catch(SQLException ex) {
+                    ex.printStackTrace();
+                }
+        }
+        else if ( comment_counter == 54 ){
+            try{
+                   PreparedStatement ps = con.prepareStatement("SELECT PERSONALITY FROM trashes WHERE ID = ?"); 
+                   ps.setInt(1, id);
+                   ResultSet rs = ps.executeQuery();
+                   System.out.println("Select Comment Successfull");
+                   while ( rs.next() )
+                       comment = rs.getString("KIDS_COMMENT");
+                   
+                } catch(SQLException ex) {
+                    ex.printStackTrace();
+                }
+        }
+        else if ( comment_counter == 55 ){
+            try{
+                   PreparedStatement ps = con.prepareStatement("SELECT HOSPITALIZATION FROM trashes WHERE ID = ?"); 
+                   ps.setInt(1, id);
+                   ResultSet rs = ps.executeQuery();
+                   System.out.println("Select Comment Successfull");
+                   while ( rs.next() )
+                       comment = rs.getString("KIDS_COMMENT");
+                   
+                } catch(SQLException ex) {
+                    ex.printStackTrace();
+                }
+        }
+        if ( comment != null ) {
+            t1.setText(""+comment);
+        }else{
+            t1.setText("");
+        }
+        
+    }
     
 }

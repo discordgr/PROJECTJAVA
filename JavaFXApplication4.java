@@ -7,6 +7,7 @@ package javafxapplication4;
 
 
 
+
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 
@@ -21,8 +22,15 @@ import java.io.FileInputStream;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Optional;
+import javafx.event.EventHandler;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.stage.Modality;
 import javafx.stage.Screen;
+import javafx.stage.WindowEvent;
 
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -35,14 +43,18 @@ import org.apache.poi.ss.usermodel.DataFormatter;
  */
 public class JavaFXApplication4 extends Application {
     
+    
     @Override
     public void start(Stage stage) throws Exception {
+        
+        
         Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+        
         Scene scene = new Scene(root);
         //stage.setX(0);
         //stage.setY(0);
-        stage.setMinWidth(800);
-        stage.setMinHeight(600);
+        //stage.setMinWidth(800);
+        //stage.setMinHeight(600);
         //stage.setWidth(1024);
         //stage.setHeight(768);
         //stage.setMaximized(true);
@@ -53,22 +65,19 @@ public class JavaFXApplication4 extends Application {
         stage.setY(bounds.getMinY());
         stage.setWidth(bounds.getWidth());
         stage.setHeight(bounds.getHeight());
-        
+        //stage.setFullScreen(true);
         stage.setMaximized(true);
         stage.setScene(scene);
-        
-        //stage.setFullScreen(true);
-        //if ( stage.fullScreenProperty().get() == false ){
-         //   stage.setMaximized(true);
-        //}
-        
-
         stage.show();
     }
+    
+    
 
     /**
      * @param args the command line arguments
      */
+    
+   
     public static void main(String[] args) throws FileNotFoundException, IOException {
         /* Gia sumptwmata
         XSSFWorkbook wb = new XSSFWorkbook(new FileInputStream("C:\\Users\\Panayiotis\\Desktop\\App.xlsx"));

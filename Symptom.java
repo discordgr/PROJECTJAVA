@@ -14,13 +14,30 @@ public class Symptom {
     
     private String name,symptomId;
     private int subSymptomCategory;
+    private boolean duration,frequency;
+    
     
     public Symptom(String name,String symptomId, int subSymptomCategory){
         this.name = name;
         //this.category = category;
         this.symptomId = symptomId;
-        //setGraphic(add_symptom);
         this.subSymptomCategory = subSymptomCategory;
+    }
+    
+    public boolean getDuration() {
+        return duration;
+    }
+
+    public void setDuration(boolean duration) {
+        this.duration = duration;
+    }
+
+    public boolean getFrequency() {
+        return frequency;
+    }
+
+    public void setFrequency(boolean frequency) {
+        this.frequency = frequency;
     }
 
     public void setSubSymptomCategory(int subSymptomCategory) {

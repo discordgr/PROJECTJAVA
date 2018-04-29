@@ -50,16 +50,17 @@ public class PopupSymptomsController implements Initializable {
             button.setOnAction(e -> {
                 
                 Symptom symptom = getItem();
+                SymptomDet symptomDet = new SymptomDet(symptom.getName(),symptom.getSymptomId());
                 
                 boolean flag = false;
-                for (Symptom s1 : data){
+                for (SymptomDet s1 : data){
                     if ( s1.getSymptomId().equals(symptom.getSymptomId())) {
                         flag = true;
                         break;
                     }
                 }
                 if ( flag == false){
-                    data.add(symptom);
+                    data.add(symptomDet);
                 }
 
                 

@@ -7,16 +7,21 @@ package javafxapplication4;
 
 import java.sql.*;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.RadioButton;
@@ -25,6 +30,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import static javafxapplication4.MenuController.id;
 
 /**
@@ -53,8 +59,13 @@ public class Register_PatientController implements Initializable {
     private boolean flag_drugs = false;
     private boolean flag_alcohol = false;
     private boolean flag_toggle = false;
+    private boolean flag_toggle_ph_ill = false;
+    private boolean flag_toggle_med_use = false;
+    private boolean flag_toggle_traum_event = false;
+    private boolean flag_toggle_diag_test = false;
     private String unknown = "Άγνωστο";
     private RadioButton r1,r2,r3,r4,r5,r6,r7,r8;
+    
     
     @FXML
     private TabPane registerPane;
@@ -197,6 +208,18 @@ public class Register_PatientController implements Initializable {
     @FXML
     private Button next2;
     
+    @FXML
+    private Button prev;
+    
+    @FXML
+    private Button prev1;
+    
+    @FXML
+    private Button prev2;
+    
+    @FXML
+    private Button prev3;
+    
     
     
     @FXML
@@ -283,102 +306,165 @@ public class Register_PatientController implements Initializable {
     private void registerTabAction(ActionEvent e) throws Exception{
         Stage stage;
         Stage stage2;
+        Stage stage3;
         Scene scene;
         Scene scene2;
+        Scene scene3;
         Parent root;
         Parent root2;
+        Parent root3;
         String values[];
         if ( e.getSource() == cancel1 ) {
-            try{
+            /*try{
                 PreparedStatement ps = con_upd.prepareStatement("DELETE FROM trashes WHERE ROWID = ?"); 
                 ps.setInt(1,id);
                 ps.executeUpdate();
                 ps.close();
             }catch(SQLException exc){
                 System.out.println("SQL ERROR");
+            }*/
+            
+            /*root3 = FXMLLoader.load(getClass().getResource("Exit_Confirmation.fxml"));
+            scene3 = new Scene(root3);
+            stage3 = new Stage();
+            stage3.setScene(scene3);
+            stage3.setMaxWidth(400);
+            stage3.setMaxHeight(300);
+            stage3.initModality(Modality.APPLICATION_MODAL);
+            stage3.show();*/
+            
+            Alert alert = new Alert(AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation Dialog");
+            alert.setHeaderText("Look, a Confirmation Dialog");
+            alert.setContentText("Are you ok with this?");
+
+            Optional<ButtonType> closeResponse = alert.showAndWait();
+            if (!ButtonType.OK.equals(closeResponse.get())) {
+                e.consume();
             }
-            stage = (Stage) cancel1.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
-            scene = new Scene(root);    
+            else
+            {
+                try{
+                    PreparedStatement ps = con_upd.prepareStatement("DELETE FROM trashes WHERE ROWID = ?"); 
+                    ps.setInt(1,id);
+                    ps.executeUpdate();
+                    ps.close();
+                }catch(SQLException exc){
+                    System.out.println("SQL ERROR");
+                }
+                
+                stage = (Stage) cancel1.getScene().getWindow();
+                root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+                scene = new Scene(root);
+                stage.setMinWidth(800);
+                stage.setMinHeight(600);
+                stage.setMaximized(true);
+                stage.setScene(scene);
+                stage.show();
+            }
+            
             
             //stage.setX(0);
             //stage.setY(0);
-            stage.setMinWidth(800);
-            stage.setMinHeight(600);
-            //stage.setWidth(1024);
-            //stage.setHeight(768);
-            stage.setMaximized(true);
-            stage.setScene(scene);
-            stage.show();
+            //stage.setMinWidth(800);
+            //stage.setMinHeight(600);
+            
+            //stage.setMaximized(true);
+            
         }
         else if ( e.getSource() == cancel2 ){
-            try{
-                PreparedStatement ps = con_upd.prepareStatement("DELETE FROM trashes WHERE ROWID = ?"); 
-                ps.setInt(1,id);
-                ps.executeUpdate();
-                ps.close();
-            }catch(SQLException exc){
-                System.out.println("SQL ERROR");
-            }
-            stage = (Stage) cancel2.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
-            scene = new Scene(root);    
             
-            //stage.setX(0);
-            //stage.setY(0);
-            stage.setMinWidth(800);
-            stage.setMinHeight(600);
-            //stage.setWidth(1024);
-            //stage.setHeight(768);
-            stage.setMaximized(true);
-            stage.setScene(scene);
-            stage.show();
+            Alert alert = new Alert(AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation Dialog");
+            alert.setHeaderText("Look, a Confirmation Dialog");
+            alert.setContentText("Are you ok with this?");
+
+            Optional<ButtonType> closeResponse = alert.showAndWait();
+            if (!ButtonType.OK.equals(closeResponse.get())) {
+                e.consume();
+            }
+            else
+            {
+                try{
+                    PreparedStatement ps = con_upd.prepareStatement("DELETE FROM trashes WHERE ROWID = ?"); 
+                    ps.setInt(1,id);
+                    ps.executeUpdate();
+                    ps.close();
+                }catch(SQLException exc){
+                    System.out.println("SQL ERROR");
+                }
+                
+                stage = (Stage) cancel2.getScene().getWindow();
+                root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+                scene = new Scene(root);
+                stage.setMinWidth(800);
+                stage.setMinHeight(600);
+                stage.setMaximized(true);
+                stage.setScene(scene);
+                stage.show();
+            }
         }
         else if ( e.getSource() == cancel3 ){
-            try{
-                PreparedStatement ps = con_upd.prepareStatement("DELETE FROM trashes WHERE ROWID = ?"); 
-                ps.setInt(1,id);
-                ps.executeUpdate();
-                ps.close();
-            }catch(SQLException exc){
-                System.out.println("SQL ERROR");
+            Alert alert = new Alert(AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation Dialog");
+            alert.setHeaderText("Look, a Confirmation Dialog");
+            alert.setContentText("Are you ok with this?");
+
+            Optional<ButtonType> closeResponse = alert.showAndWait();
+            if (!ButtonType.OK.equals(closeResponse.get())) {
+                e.consume();
             }
-            stage = (Stage) cancel3.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
-            scene = new Scene(root);    
-            
-            //stage.setX(0);
-            //stage.setY(0);
-            stage.setMinWidth(800);
-            stage.setMinHeight(600);
-            //stage.setWidth(1024);
-            //stage.setHeight(768);
-            stage.setMaximized(true);
-            stage.setScene(scene);
-            stage.show();
+            else
+            {
+                try{
+                    PreparedStatement ps = con_upd.prepareStatement("DELETE FROM trashes WHERE ROWID = ?"); 
+                    ps.setInt(1,id);
+                    ps.executeUpdate();
+                    ps.close();
+                }catch(SQLException exc){
+                    System.out.println("SQL ERROR");
+                }
+                
+                stage = (Stage) cancel3.getScene().getWindow();
+                root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+                scene = new Scene(root);
+                stage.setMinWidth(800);
+                stage.setMinHeight(600);
+                stage.setMaximized(true);
+                stage.setScene(scene);
+                stage.show();
+            }
         }
         else if ( e.getSource() == cancel4 ){
-            try{
-                PreparedStatement ps = con_upd.prepareStatement("DELETE FROM trashes WHERE ROWID = ?"); 
-                ps.setInt(1,id);
-                ps.executeUpdate();
-                ps.close();
-            }catch(SQLException exc){
-                System.out.println("SQL ERROR");
+            Alert alert = new Alert(AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation Dialog");
+            alert.setHeaderText("Look, a Confirmation Dialog");
+            alert.setContentText("Are you ok with this?");
+
+            Optional<ButtonType> closeResponse = alert.showAndWait();
+            if (!ButtonType.OK.equals(closeResponse.get())) {
+                e.consume();
             }
-            stage = (Stage) cancel4.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
-            scene = new Scene(root);    
-            
-            //stage.setX(0);
-            //stage.setY(0);
-            stage.setMinWidth(800);
-            stage.setMinHeight(600);
-            //stage.setWidth(1024);
-            //stage.setHeight(768);
-            stage.setMaximized(true);
-            stage.setScene(scene);
-            stage.show();
+            else
+            {
+                try{
+                    PreparedStatement ps = con_upd.prepareStatement("DELETE FROM trashes WHERE ROWID = ?"); 
+                    ps.setInt(1,id);
+                    ps.executeUpdate();
+                    ps.close();
+                }catch(SQLException exc){
+                    System.out.println("SQL ERROR");
+                }
+                
+                stage = (Stage) cancel1.getScene().getWindow();
+                root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+                scene = new Scene(root);
+                stage.setMinWidth(800);
+                stage.setMinHeight(600);
+                stage.setMaximized(true);
+                stage.setScene(scene);
+                stage.show();
+            }
         }
         else if (e.getSource() == save1 ){
             RadioButton r1 = (RadioButton)kids.getSelectedToggle();
@@ -434,6 +520,7 @@ public class Register_PatientController implements Initializable {
             }
             registerPane.getSelectionModel().selectNext();
         }
+        else if(e.getSource() == prev1) registerPane.getSelectionModel().selectPrevious();
         else if(e.getSource() == next2){
             
             try{
@@ -507,17 +594,71 @@ public class Register_PatientController implements Initializable {
                 }else{
                     ps.setString(10,"Όχι");
                 }
-                ps.setInt(11,id);
+                ps.setInt(11, id);
                 ps.executeUpdate();
                 ps.close();
             }catch(SQLException exc){
                 exc.printStackTrace();
             }
             registerPane.getSelectionModel().selectNext();
-        }else if ( e.getSource() == save_all ) {
-            
-           
         }
+        else if(e.getSource() == prev2) registerPane.getSelectionModel().selectPrevious();
+        else if ( e.getSource() == save_all ) {
+            //swmatikes nosoi
+            if(physicalIllness.getSelectedToggle() == null) flag_toggle_ph_ill = true;
+            else r2 = (RadioButton)physicalIllness.getSelectedToggle();
+            
+            //prosfath xrhsh farmakwn
+            if(medicationUse.getSelectedToggle() == null) flag_toggle_med_use = true;
+            else r3 = (RadioButton)medicationUse.getSelectedToggle();
+            
+            //prosfato traumatiko gegonos
+            if(traumaticEvent.getSelectedToggle() == null) flag_toggle_traum_event = true;
+            else r4 = (RadioButton)traumaticEvent.getSelectedToggle();
+            
+            //prosfato diagnwstiko test
+            if(diagnosticTest.getSelectedToggle() == null) flag_toggle_diag_test = true;
+            else r5 = (RadioButton)diagnosticTest.getSelectedToggle();
+            
+            try{
+                PreparedStatement ps = con_upd.prepareStatement("UPDATE trashes SET APPEARANCE = ?, MOVEMENT_ACTIVITY = ?, EYE_CONTACT = ?, SPEECH = ?, PHYSICAL_ILLNESS = ?, MEDICATION_USE = ?, TRAUMATIC_EVENT = ?, DIAGNOSTICS_TEST = ? WHERE ID = ?");
+                ps.setString(1,appearanceBox.getValue().toString()+ "");
+                System.out.println(appearanceBox.getValue().toString()+ "");
+                ps.setString(2,movementBox.getValue().toString()+ "");
+                ps.setString(3,eye_contactBox.getValue().toString()+ "");
+                ps.setString(4,speechBox.getValue().toString()+ "");
+                if (flag_toggle_ph_ill == true ){
+                    ps.setString(5,"Άγνωστο");
+                }else{
+                    ps.setString(5,r2.getText());
+                }
+                if (flag_toggle_med_use == true ){
+                    ps.setString(6,"Άγνωστο");
+                }else{
+                    ps.setString(6,r3.getText());
+                }
+                if (flag_toggle_traum_event == true ){
+                    ps.setString(7,"Άγνωστο");
+                }else{
+                    ps.setString(7,r4.getText());
+                    System.out.println(r4.getText());
+                }
+                if (flag_toggle_diag_test == true ){
+                    ps.setString(8,"Άγνωστο");
+                }else{
+                    ps.setString(8,r5.getText());
+                }
+                System.out.println("To id einai " + id);
+                
+                ps.setInt(9, id);
+                ps.executeUpdate();
+                ps.close();
+              
+            }catch (SQLException exc){
+                System.out.println(exc.toString());
+            } 
+        }
+        else if(e.getSource() == prev3) registerPane.getSelectionModel().selectPrevious();
         else if ( e.getSource() == comment_kids ){
             root2 = FXMLLoader.load(getClass().getResource("Comment_Window.fxml"));
             scene2 = new Scene(root2);
@@ -786,6 +927,8 @@ public class Register_PatientController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        
         con_upd = loginmodel2.getConnection();
         familyStatusBox.setItems(familyStatusList);
         familyStatusBox.setValue("Άγαμος");
@@ -807,7 +950,9 @@ public class Register_PatientController implements Initializable {
         eye_contactBox.setValue("Υπερμιμίες");
         speechBox.setItems(speechList);
         speechBox.setValue("Τραυλισμός");
-    }    
+    }  
+    
+    
     
 }
 

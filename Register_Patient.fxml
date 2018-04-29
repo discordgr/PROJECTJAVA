@@ -244,11 +244,6 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="save1" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="40.0" stylesheets="@SaveButton.css" text="Αποθήκευση">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
                               <Button fx:id="next" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="40.0" stylesheets="@SaveButton.css" text="Επόμενο">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
@@ -438,6 +433,11 @@
                         <HBox alignment="CENTER" prefHeight="43.0" prefWidth="1004.0" spacing="70.0" GridPane.rowIndex="1">
                            <children>
                               <Button fx:id="cancel2" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="40.0" stylesheets="@CancelButton.css" text="Άκυρο">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button fx:id="prev1" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="40.0" stylesheets="@SaveButton.css" text="Προηγούμενο">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -687,6 +687,10 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
+                              <Button fx:id="prev2" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="40.0" stylesheets="@SaveButton.css" text="Προηγούμενο">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
                               <Button fx:id="next2" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="40.0" stylesheets="@SaveButton.css" text="Επόμενο">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
@@ -992,6 +996,10 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
+                              <Button fx:id="prev3" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="40.0" stylesheets="@SaveButton.css" text="Προηγούμενο">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
                               <Button fx:id="save_all" mnemonicParsing="false" onAction="#registerTabAction" prefHeight="40.0" stylesheets="@SaveButton.css" text="Αποθήκευση">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
