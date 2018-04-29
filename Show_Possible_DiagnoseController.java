@@ -74,12 +74,13 @@ public class Show_Possible_DiagnoseController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
             scene = new Scene(root);    
             
-            stage.setX(0);
-            stage.setY(0);
+            //stage.setX(0);
+            //stage.setY(0);
             stage.setMinWidth(800);
             stage.setMinHeight(600);
-            stage.setWidth(1024);
-            stage.setHeight(768);
+            //stage.setWidth(1024);
+            //stage.setHeight(768);
+            stage.setMaximized(true);
             stage.setScene(scene);
             stage.show();
         }

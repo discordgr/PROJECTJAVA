@@ -5,8 +5,6 @@
  */
 package javafxapplication4;
 
-
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -16,7 +14,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Locale;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import java.util.ResourceBundle;
@@ -33,6 +30,9 @@ import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -45,10 +45,15 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.ScrollEvent;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
-
 
 /**
  * FXML Controller class
@@ -60,7 +65,7 @@ public class Symptom_DataController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    
+    //private static Button button = new Button("Select");
     // Tabs symnptwmatwn
     @FXML
     private TableView<Symptom> symptomsTableTrofis;
@@ -145,10 +150,10 @@ public class Symptom_DataController implements Initializable {
     
     // Pinakas me ta symptwmata pou exoun epilexxthei (emfanizetai deksia)
     @FXML
-    private TableView<Symptom> addedSymptomsTable;
+    private TableView<SymptomDet> addedSymptomsTable;
     
     @FXML
-    private TableColumn<Symptom,String> addedSymptomsColumn;
+    private TableColumn<SymptomDet,String> addedSymptomsColumn;
     
     @FXML
     private Button cancel;
@@ -160,21 +165,27 @@ public class Symptom_DataController implements Initializable {
     private Button remove;
     
     @FXML
+    private Button test;
+    
+    @FXML
     private TextField searchField;
     
     public static int disorder_id;
     
-    private static int counter = 0;
-    
     public LoginModel loginModelSymptomsTable = new LoginModel();
     
-    public static ObservableList<Symptom> data = FXCollections.observableArrayList();
+    public static ObservableList<SymptomDet> data = FXCollections.observableArrayList();
     
     public static ObservableList<Symptom> subSymptoms = FXCollections.observableArrayList();
+    
+    private Stage stage2;
+    
+    public static SymptomDet symptomDet;
     
     ObservableList<Symptom> t1 = loginModelSymptomsTable.selectSymptomTrofis();
     
     FilteredList<Symptom> filteredData = new FilteredList<Symptom>(t1, e -> true);
+    
     
     
     @FXML
@@ -209,7 +220,7 @@ public class Symptom_DataController implements Initializable {
         String symptomsClicked = "";
         //int[] ids = new int[50];
         int[][] b;
-        for ( Symptom s1 : data){
+        for ( SymptomDet s1 : data){
             if(symptomsClicked.equals("")) symptomsClicked += s1.getSymptomId();
                 else symptomsClicked += "," + s1.getSymptomId();
         } 
@@ -255,7 +266,8 @@ public class Symptom_DataController implements Initializable {
         Parent root;
         if ( e.getSource() == proceed ) {
             stage = (Stage) proceed.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("Show_Possible_Diagnose.fxml"));
+            //root = FXMLLoader.load(getClass().getResource("Show_Possible_Diagnose.fxml"));
+            root = FXMLLoader.load(getClass().getResource("Duration_Frequency_Extras.fxml"));
             scene = new Scene(root);    
             
             //stage.setX(0);
@@ -275,7 +287,7 @@ public class Symptom_DataController implements Initializable {
     @FXML
     private void removeSymptom(MouseEvent e) throws Exception{
          if (e.getClickCount() == 1) {
-            Symptom s = addedSymptomsTable.getSelectionModel().getSelectedItem();
+            SymptomDet s = addedSymptomsTable.getSelectionModel().getSelectedItem();
             if ( s != null ){
                 remove.setDisable(false);
                 remove.setOnAction(ex ->{
@@ -283,12 +295,26 @@ public class Symptom_DataController implements Initializable {
                 remove.setDisable(true);
                 });
             }
-    
-            
-
         }
     }
     
+    @FXML
+    private void testingScene(ActionEvent e) throws IOException{
+       
+        Stage stage3;
+        Scene scene2;
+        Parent root2;
+        if(e.getSource() == test)
+        {
+            for ( SymptomDet s : data){
+                System.out.println(s.toString());
+            }
+
+        }
+        
+          
+    }
+            
     
     @FXML
     private void filterSymptom(KeyEvent k) throws Exception{
@@ -309,6 +335,8 @@ public class Symptom_DataController implements Initializable {
                lowerCaseFilter = Normalizer.normalize(lowerCaseFilter, Normalizer.Form.NFD);
                lowerCaseFilter = lowerCaseFilter.replaceAll("\\p{M}", "").toLowerCase();
                //lowerCaseFilter.replace("βραδυ","νυχτερινη");
+              
+               
                if ( searchField.getText().length()>=0){
                    String transform = s.getName();
                    transform = Normalizer.normalize(transform, Normalizer.Form.NFD);
@@ -330,6 +358,7 @@ public class Symptom_DataController implements Initializable {
         sortedData.comparatorProperty().bind(symptomsTableTrofis.comparatorProperty());
         symptomsTableTrofis.setItems(sortedData);
     }
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -373,67 +402,52 @@ public class Symptom_DataController implements Initializable {
     
     
     //ACTIONS
-    actionColumnTrofis.setCellFactory(column -> new TableCell<Symptom, Symptom>() {
-        private final Button button = new Button("Select");
-        {
-            button.setOnAction(e -> {
-                
-                Symptom symptom = getItem();
-                //this.tableRowProperty().get().setStyle("-fx-background-color: #15ED15;");
-                
-                String test = symptom.getName();
-                test = Normalizer.normalize(test, Normalizer.Form.NFD);
-                //test = test.replaceAll("\\p{M}", "");
-                
-
-                System.out.println(test.toLowerCase());
-                
-                boolean flag = false;
-                for (Symptom s1 : data){
-                    if ( s1.getSymptomId().equals(symptom.getSymptomId())) {
-                        flag = true;
-                        break;
-                    }
-                }
-                if ( flag == false){
-                    data.add(symptom);
-                }
-                
-                
-                symptomsTableTrofis.getSelectionModel().select(this.getIndex());
-                //symptomsTableTrofis.getRowFactory();
-                System.out.println(symptomsTableTrofis.getSelectionModel().isSelected(this.getIndex()));
-                
-                System.out.println(symptom.getSymptomId());
-            });
-        }
-
-        @Override
-        protected void updateItem(Symptom item, boolean empty) {
-            super.updateItem(item, empty);
-            if (empty) {
-                setGraphic(null);
-            } else {
-                setGraphic(button);
+    actionColumnTrofis.setCellFactory(column -> {
+        return new TableCell<Symptom, Symptom>() {
+            private final Button button=  new Button("Select");
+            private final Button button2 = new Button("UnSelect");
+            boolean isSymptomSelected = false;
+            {
+                button.setOnAction(e -> {
+                    Symptom symptom = getItem();
+                    //button.setId(symptom.getSymptomId());
+                    System.out.println("Id of symptom is: " + symptom.getSymptomId() + "\nId of button is: " + button.getId());
+                    
+                    //Epanalambanomeni Sunartisi
+                    selectFunctionality(symptom);
+                 
+                });
             }
-        }
+            
+            @Override
+            protected void updateItem(Symptom item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(button);
+                }
+            }
+        };
     });
+    
     actionColumnDiathesis.setCellFactory(column -> new TableCell<Symptom, Symptom>() {
         private final Button button = new Button("Select");
         {
             button.setOnAction(e -> {
                 
                 Symptom symptom = getItem();
-
+                
+                SymptomDet symptomDet = new SymptomDet(symptom.getName(),symptom.getSymptomId());
                 boolean flag = false;
-                for (Symptom s1 : data){
+                for (SymptomDet s1 : data){
                     if ( s1.getSymptomId().equals(symptom.getSymptomId())) {
                         flag = true;
                         break;
                     }
                 }
                 if ( flag == false){
-                    data.add(symptom);
+                    data.add(symptomDet);
                 }
 
 
@@ -505,15 +519,16 @@ public class Symptom_DataController implements Initializable {
                 }
                 
                 boolean flag = false;
+                SymptomDet symptomDet = new SymptomDet(symptom.getName(),symptom.getSymptomId());
                 
-                for (Symptom s1 : data){
+                for (SymptomDet s1 : data){
                     if ( s1.getSymptomId().equals(symptom.getSymptomId())) {
                         flag = true;
                         break;
                     }
                 }
                 if ( flag == false){
-                    data.add(symptom);
+                    data.add(symptomDet);
                 }
 
                 
@@ -541,14 +556,15 @@ public class Symptom_DataController implements Initializable {
                 Symptom symptom = getItem();
 
                 boolean flag = false;
-                for (Symptom s1 : data){
+                SymptomDet symptomDet = new SymptomDet(symptom.getName(),symptom.getSymptomId());
+                for (SymptomDet s1 : data){
                     if ( s1.getSymptomId().equals(symptom.getSymptomId())) {
                         flag = true;
                         break;
                     }
                 }
                 if ( flag == false){
-                    data.add(symptom);
+                    data.add(symptomDet);
                 }
 
 
@@ -574,14 +590,16 @@ public class Symptom_DataController implements Initializable {
                 Symptom symptom = getItem();
 
                 boolean flag = false;
-                for (Symptom s1 : data){
+                SymptomDet symptomDet = new SymptomDet(symptom.getName(),symptom.getSymptomId());
+                
+                for (SymptomDet s1 : data){
                     if ( s1.getSymptomId().equals(symptom.getSymptomId())) {
                         flag = true;
                         break;
                     }
                 }
                 if ( flag == false){
-                    data.add(symptom);
+                    data.add(symptomDet);
                 }
 
 
@@ -607,14 +625,16 @@ public class Symptom_DataController implements Initializable {
                 Symptom symptom = getItem();
 
                 boolean flag = false;
-                for (Symptom s1 : data){
+                SymptomDet symptomDet = new SymptomDet(symptom.getName(),symptom.getSymptomId());
+                
+                for (SymptomDet s1 : data){
                     if ( s1.getSymptomId().equals(symptom.getSymptomId())) {
                         flag = true;
                         break;
                     }
                 }
                 if ( flag == false){
-                    data.add(symptom);
+                    data.add(symptomDet);
                 }
 
 
@@ -640,14 +660,15 @@ public class Symptom_DataController implements Initializable {
                 Symptom symptom = getItem();
 
                 boolean flag = false;
-                for (Symptom s1 : data){
+                SymptomDet symptomDet = new SymptomDet(symptom.getName(),symptom.getSymptomId());
+                for (SymptomDet s1 : data){
                     if ( s1.getSymptomId().equals(symptom.getSymptomId())) {
                         flag = true;
                         break;
                     }
                 }
                 if ( flag == false){
-                    data.add(symptom);
+                    data.add(symptomDet);
                 }
 
 
@@ -673,14 +694,16 @@ public class Symptom_DataController implements Initializable {
                 Symptom symptom = getItem();
 
                 boolean flag = false;
-                for (Symptom s1 : data){
+                SymptomDet symptomDet = new SymptomDet(symptom.getName(),symptom.getSymptomId());
+                
+                for (SymptomDet s1 : data){
                     if ( s1.getSymptomId().equals(symptom.getSymptomId())) {
                         flag = true;
                         break;
                     }
                 }
                 if ( flag == false){
-                    data.add(symptom);
+                    data.add(symptomDet);
                 }
 
 
@@ -706,14 +729,15 @@ public class Symptom_DataController implements Initializable {
                 Symptom symptom = getItem();
 
                 boolean flag = false;
-                for (Symptom s1 : data){
+                SymptomDet symptomDet = new SymptomDet(symptom.getName(),symptom.getSymptomId());
+                for (SymptomDet s1 : data){
                     if ( s1.getSymptomId().equals(symptom.getSymptomId())) {
                         flag = true;
                         break;
                     }
                 }
                 if ( flag == false){
-                    data.add(symptom);
+                    data.add(symptomDet);
                 }
 
 
@@ -732,8 +756,8 @@ public class Symptom_DataController implements Initializable {
         }
     });
     
-
     symptomsTableTrofis.setItems(t1);
+    symptomsTableTrofis.setItems(loginModelSymptomsTable.selectSymptomTrofis());
     symptomsTableDiathesis.setItems(loginModelSymptomsTable.selectSymptomDiathesis());
     symptomsTableSkepsis.setItems(loginModelSymptomsTable.selectSymptomSkepsis());
     symptomsTableFovou.setItems(loginModelSymptomsTable.selectSymptomSkepsis());
@@ -743,8 +767,46 @@ public class Symptom_DataController implements Initializable {
     symptomsTableDrastiriotitas.setItems(loginModelSymptomsTable.selectSymptomDrastiriotitas());
     symptomsTableYpnou.setItems(loginModelSymptomsTable.selectSymptomYpnou());
     addedSymptomsTable.setItems(data);
-
-    }    
-   
+    }
+    
+    public void selectFunctionality(Symptom symptom){
+        symptomDet = new SymptomDet(symptom.getName(),symptom.getSymptomId());          
+        //sd = symptomDet;
+        boolean flag = false;
+        for (SymptomDet s1 : data){
+            if ( s1.getSymptomId().equals(symptom.getSymptomId())) {
+                flag = true;
+                break;
+            }
+        }
+       
+            //data.add(symptomDet);
+            
+            //GIA SYMPTWMATA XWRIS DURATION KAI FREQUENCY PREPEI NA KANOUME ADD STO DATA
+        
+        
+        
+         if ( flag == false){
+            Stage stage3;
+            Scene scene2;
+            Parent root2;
+            stage3 = new Stage();
+            try {
+                root2 = FXMLLoader.load(getClass().getResource("Duration_Frequency_Extras.fxml"));
+                scene2 = new Scene(root2);
+                stage3.setScene(scene2);
+                stage3.setMinWidth(800);
+                stage3.setMinHeight(600);
+                stage3.setWidth(1024);
+                stage3.setHeight(768);
+                //stage3.setMaximized(true);
+                stage3.show();
+            } catch (IOException ex) {
+                Logger.getLogger(Symptom_DataController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            System.out.println(symptom.getSymptomId());
+         }
+         
+    }
     
 }
