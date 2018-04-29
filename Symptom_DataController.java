@@ -180,9 +180,7 @@ public class Symptom_DataController implements Initializable {
     
     private Stage stage2;
     
-    private static int duration;
-    
-    private static int frequency;
+    public static SymptomDet symptomDet;
     
     ObservableList<Symptom> t1 = loginModelSymptomsTable.selectSymptomTrofis();
     
@@ -297,9 +295,6 @@ public class Symptom_DataController implements Initializable {
                 remove.setDisable(true);
                 });
             }
-    
-            
-
         }
     }
     
@@ -311,17 +306,9 @@ public class Symptom_DataController implements Initializable {
         Parent root2;
         if(e.getSource() == test)
         {
-            
-            stage3 = new Stage();
-            root2 = FXMLLoader.load(getClass().getResource("Duration_Frequency_Extras.fxml"));
-            scene2 = new Scene(root2);
-            stage3.setScene(scene2);
-            stage3.setMinWidth(800);
-            stage3.setMinHeight(600);
-            stage3.setWidth(1024);
-            stage3.setHeight(768);
-            //stage3.setMaximized(true);
-            stage3.show();
+            for ( SymptomDet s : data){
+                System.out.println(s.toString());
+            }
 
         }
         
@@ -329,7 +316,7 @@ public class Symptom_DataController implements Initializable {
     }
             
     
-     @FXML
+    @FXML
     private void filterSymptom(KeyEvent k) throws Exception{
         
         //System.out.println(searchField.getText());
@@ -348,6 +335,8 @@ public class Symptom_DataController implements Initializable {
                lowerCaseFilter = Normalizer.normalize(lowerCaseFilter, Normalizer.Form.NFD);
                lowerCaseFilter = lowerCaseFilter.replaceAll("\\p{M}", "").toLowerCase();
                //lowerCaseFilter.replace("βραδυ","νυχτερινη");
+              
+               
                if ( searchField.getText().length()>=0){
                    String transform = s.getName();
                    transform = Normalizer.normalize(transform, Normalizer.Form.NFD);
@@ -369,10 +358,6 @@ public class Symptom_DataController implements Initializable {
         sortedData.comparatorProperty().bind(symptomsTableTrofis.comparatorProperty());
         symptomsTableTrofis.setItems(sortedData);
     }
-
-    
-
-    
     
     
     @Override
@@ -785,7 +770,8 @@ public class Symptom_DataController implements Initializable {
     }
     
     public void selectFunctionality(Symptom symptom){
-        SymptomDet symptomDet = new SymptomDet(symptom.getName(),symptom.getSymptomId());          
+        symptomDet = new SymptomDet(symptom.getName(),symptom.getSymptomId());          
+        //sd = symptomDet;
         boolean flag = false;
         for (SymptomDet s1 : data){
             if ( s1.getSymptomId().equals(symptom.getSymptomId())) {
@@ -793,27 +779,34 @@ public class Symptom_DataController implements Initializable {
                 break;
             }
         }
-        if ( flag == false){
-            data.add(symptomDet);
-        }
-        Stage stage3;
-        Scene scene2;
-        Parent root2;
-        stage3 = new Stage();
-        try {
-            root2 = FXMLLoader.load(getClass().getResource("Duration_Frequency_Extras.fxml"));
-            scene2 = new Scene(root2);
-            stage3.setScene(scene2);
-            stage3.setMinWidth(800);
-            stage3.setMinHeight(600);
-            stage3.setWidth(1024);
-            stage3.setHeight(768);
-            //stage3.setMaximized(true);
-            stage3.show();
-        } catch (IOException ex) {
-            Logger.getLogger(Symptom_DataController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        System.out.println(symptom.getSymptomId());
+       
+            //data.add(symptomDet);
+            
+            //GIA SYMPTWMATA XWRIS DURATION KAI FREQUENCY PREPEI NA KANOUME ADD STO DATA
+        
+        
+        
+         if ( flag == false){
+            Stage stage3;
+            Scene scene2;
+            Parent root2;
+            stage3 = new Stage();
+            try {
+                root2 = FXMLLoader.load(getClass().getResource("Duration_Frequency_Extras.fxml"));
+                scene2 = new Scene(root2);
+                stage3.setScene(scene2);
+                stage3.setMinWidth(800);
+                stage3.setMinHeight(600);
+                stage3.setWidth(1024);
+                stage3.setHeight(768);
+                //stage3.setMaximized(true);
+                stage3.show();
+            } catch (IOException ex) {
+                Logger.getLogger(Symptom_DataController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            System.out.println(symptom.getSymptomId());
+         }
+         
     }
     
 }

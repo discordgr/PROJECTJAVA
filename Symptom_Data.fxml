@@ -160,7 +160,7 @@
                   <Insets left="50.0" top="50.0" />
                </HBox.margin>
             </Button>
-            <TextField fx:id="searchField" onKeyReleased="#filterSymptom" />
+            <TextField fx:id="searchField" onKeyPressed="#filterSymptom" />
          </children>
       </HBox>
    </children>

@@ -12,7 +12,7 @@ package javafxapplication4;
 public class SymptomDet {
     
     private String name,symptomId,durPeriod,freqPeriod;
-    private int durNumber,freqNumber;
+    private double durNumber,freqNumber;
 
     public SymptomDet(String name, String symptomId, String durPeriod, String freqPeriod, int durNumber, int freqNumber) {
         this.name = name;
@@ -26,6 +26,9 @@ public class SymptomDet {
     public SymptomDet(String name, String symptomId) {
         this.name = name;
         this.symptomId = symptomId;
+    }
+
+    public SymptomDet() {
     }
     
     
@@ -62,20 +65,25 @@ public class SymptomDet {
         this.freqPeriod = freqPeriod;
     }
 
-    public int getDurNumber() {
+    public double getDurNumber() {
         return durNumber;
     }
 
-    public void setDurNumber(int durNumber) {
+    public void setDurNumber(double durNumber) {
         this.durNumber = durNumber;
     }
 
-    public int getFreqNumber() {
+    public double getFreqNumber() {
         return freqNumber;
     }
 
-    public void setFreqNumber(int freqNumber) {
+    public void setFreqNumber(double freqNumber) {
         this.freqNumber = freqNumber;
+    }
+    
+    @Override
+    public String toString(){
+        return "Name of Symptom is: " + this.name + "\nId of Symptom is: " + this.symptomId + "\nDuration Period is: " + this.durPeriod + "\nDuration Number is: " + this.durNumber + "\nFrequency Period is: " + this.freqPeriod + "\nFrequency Number is: " + this.freqNumber;
     }
     
     
